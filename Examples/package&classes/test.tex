@@ -1,0 +1,37 @@
+\documentclass[a4paper,oneside]{exampleclass}
+
+\usepackage{fancyhdr}
+
+\usepackage{kantlipsum} % for mock text
+
+%\pagestyle{fancy}
+%\fancyhf{} % clear all fields
+%\fancyhead[L]{\rightmark}
+%\fancyhead[R]{\thepage}
+
+\renewcommand{\subsectionmark}[1]{%
+  \markright{\MakeUppercase{\thesubsection.\ #1}}}%
+
+\begin{document}
+
+\chapter{Chapter title}
+
+\kant[1]
+
+\section{Section title}
+
+\kant[2-7]
+
+\subsection{Subsection title A}
+
+\kant[8-10]
+
+\subsection{Subsection title B}
+
+\kant[11-14]
+
+\subsection{Subsection title C}
+
+\kant[15-18]
+
+\end{document}
