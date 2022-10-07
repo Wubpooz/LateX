@@ -1,0 +1,201 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage[top=2cm, bottom=2cm, left=2.6cm, right=2.6cm]{geometry}
+\usepackage{setspace}
+\usepackage{eucal}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{fourier-orns}
+\usepackage{centernot}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+
+
+\everymath{\displaystyle}
+
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mB}{\mathcal{B}}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\mD}{\mathcal{D}}
+\newcommand{\mE}{\mathcal{E}}
+\newcommand{\mF}{\mathcal{F}}
+\newcommand{\mG}{\mathcal{G}}
+\newcommand{\mH}{\mathcal{H}}
+\newcommand{\mI}{\mathcal{I}}
+\newcommand{\mJ}{\mathcal{J}}
+\newcommand{\mK}{\mathcal{K}}
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mM}{\mathcal{M}}
+\newcommand{\mN}{\mathcal{N}}
+\newcommand{\mO}{\mathcal{O}}
+\newcommand{\mP}{\mathcal{P}}
+\newcommand{\mQ}{\mathcal{Q}}
+\newcommand{\mR}{\mathcal{R}}
+\newcommand{\mS}{\mathcal{S}}
+\newcommand{\mT}{\mathcal{T}}
+\newcommand{\mU}{\mathcal{U}}
+\newcommand{\mV}{\mathcal{V}}
+\newcommand{\mW}{\mathcal{W}}
+\newcommand{\mX}{\mathcal{X}}
+\newcommand{\mY}{\mathcal{Y}}
+\newcommand{\mZ}{\mathcal{Z}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+\newcommand{\Mat}{\text{Mat}}
+
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\La}{\Leftarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\Da}{\Leftrightarrow}
+\newcommand{\da}{\leftrightarrow}
+
+\newcommand{\0}{\emptyset}
+\newcommand{\bigzero}{\mbox{\normalfont\Large\bfseries 0}}
+\newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\newcommand{\SN}{\sum_{i=1}^n}
+\newcommand{\SI}{\sum_{n=0}^{+\infty}}
+\newcommand{\PN}{\prod_{i=1}^n}
+\newcommand{\TI}{\xrightarrow[+\infty]{}}
+\newcommand{\LI}{\lim_{n\to +\infty}}
+\newcommand{\dt}{\; \text{d}t}
+\newcommand{\dx}{\; \text{d}x}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Polytech Paris-Saclay}
+\chead{\textbf{Feuille d'exercices n°1 Équivalents, Suites et DL}}
+\rhead{Peip2A}
+\lfoot{Mathieu WAHARTE}
+\rfoot{\href{mailto:mathieu.waharte@universite-pais-saclay.fr}{mathieu.waharte@u-psud.fr}}
+\cfoot{\thepage}
+
+
+\usepackage{titlesec}
+
+\titleformat{\subsection}[runin]
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\begin{document}
+
+\section*{Équivalents}
+\subsection*{Exercice 1.}
+\hyperref[subsec:corr1]{(\textit{Voir corrigé})} ($\bigstar$)
+\label{subsec:ex1}
+\begin{flushleft}
+Trouvez des équivalents des suites et fonctions suivantes :
+
+\begin{tabular}{l l l}
+     1) $u_n = \frac{1}{n-1} - \frac{1}{n+1}$ en $+\infty$ & 2) $v_n = \sqrt{n+1} - \sqrt{n-1}$ en $+\infty$ & 3) $w_n =\sqrt{n + \sqrt{n}} - \sqrt{n}$ en $+\infty$\\
+     4) $\ln(\cos x)$ en $0$ & 5) $\frac{1}{x} - \frac{1}{\sin x}$ en $0$ & 6) $\cos(\sin x)$ en $0$ \\
+\end{tabular}
+
+\end{flushleft}
+\subsection*{Exercice 2.}
+\hyperref[subsec:corr2]{(\textit{Voir corrigé})} ($\bigstar$)
+\label{subsec:ex2}
+\begin{flushleft}
+Comparez les fonctions suivantes :\\
+1) $x \ln x$ et $\ln(1+2x)$ au voisinage de 0\\
+2) $x \ln x$ et $\sqrt{x^2 + 3x} \ln(x^2) \sin x$ au voisinage de $+\infty$\\
+\end{flushleft}
+
+
+\section*{Développements limités}
+\subsection*{Exercice 3}
+\hyperref[subsec:corr3]{(\textit{Voir énoncé})} ($\bigstar$)
+\label{subsec:ex3}
+\begin{flushleft}
+1)
+\end{flushleft}
+
+
+\newpage
+
+\section*{Équivalents}
+\subsection*{Exercice 1.}
+\hyperref[subsec:ex1]{(\textit{Voir corrigé})} ($\bigstar$)
+\label{subsec:corr1}
+\begin{flushleft}
+1) On met sur le même dénominateur.\\
+2) On utilise la quantité conjugée : $v_n = \frac{(\sqrt{n+1} + \sqrt{n-1})(\sqrt{n+1}-\sqrt{n-1})}{\sqrt{n+1 + \sqrt{n-1}}} = \dots = \frac{2}{\sqrt{n+1}+\sqrt{n-1}}$.\\
+Aussi, on a $\frac{\sqrt{n+1}+\sqrt{n-1}}{2\sqrt{n}} = \frac{1}{2}\sqrt{1+\frac{1}{n}} + \frac{1}{2}\sqrt{1-\frac{1}{n}}$, ces deux quantités tendant vers 1, on a un équivalent (avec les $0.5$).
+Ainsi $v_n \underset{+\infty}{\sim} = \frac{1}{\sqrt{n}}$.\\
+3) $w_n = \sqrt{n\Big(1+\frac{1}{\sqrt{n}}\Big)} - \sqrt{n} = \sqrt{n}\Big(\sqrt{1+\frac{1}{n}} -1\Big) \underset{+\infty}{\sim} $\\
+4) $\ln(\cos x) = \ln(1 - (1- \cos x)) \underset{0}{\sim} - (1-\cos x) \underset{0}{\sim} - \frac{x^2}{2}$.\\
+5) $\frac{1}{x}-\frac{1}{\sin x} = \frac{\sin x -x}{x\sin x} \underset{0}{\sim} \frac{\frac{-x^3}{3!}}{x^2} = -\frac{x}{6}$ (DL ordre 4 de sin en haut et ordre 2 en bas).\\
+\text{ }\\
+6) Par composition, $\cos (\sin x) \ra 1$ en 0 et donc $\cos (\sin x) \underset{0}{\sim} 1$.\\
+\end{flushleft}
+
+\subsection*{Exercice 2.}
+\hyperref[subsec:ex2]{(\textit{Voir énoncé})} ($\bigstar$)
+\label{subsec:corr2}
+\begin{flushleft}
+1) $\frac{\ln(1+2x)}{x\ln x} \underset{0}{\sim} \frac{2}{\ln x} \longrightarrow 0 $.\\
+2) Pour $x$ assez grand, $\sqrt{x^2 + 3x}\leqslant 2x$ (passer au carré pour s'en convaincre) et on a aussi $\ln(x^2) = 2 \ln x$ et $| \sin x | \leqslant 1$.\\
+Donc $|\sqrt{x^2 + 3x} \ln(x^2) \sin x |\leqslant 4x\ln x$ et ainsi $\sqrt{x^2 + 3x} \ln(x^2) \sin x \underset{+\infty}{=} O(x \ln x)$.\\
+\end{flushleft}
+
+\section*{Dévelopments limités}
+\subsection*{Exercice 3}
+\hyperref[subsec:ex3]{(\textit{Voir énoncé})} ($\bigstar$)
+\label{subsec:corr3}
+\begin{flushleft}
+1)
+\end{flushleft}
+
+\end{document}
