@@ -1,0 +1,142 @@
+\documentclass[usenames,dvipsnames]{beamer} %for \cul xcolor tags to work with tikz, passes args to xcolor directly => DO NOT CALL the package with them later else causes error
+
+\usepackage{Mmbase}
+
+
+\usefonttheme[onlymath]{serif} %for serif font in math mode
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{enumerate items}[default] %changes the dots of enumerate
+
+
+\makeatletter
+\newcommand{\Pause}[1][]{\unless\ifmeasuring@\relax
+\pause[#1]%
+\fi}
+\makeatother %for correct \pause in math mode in enumerate
+
+
+
+%------------------------------ Title page ------------------------------
+
+\title[Intro Fourier]{Introduction à la théorie de Fourier}
+
+\subtitle{Généralités}
+
+\author{M. Waharte}
+
+\institute[PPS]{Polytech Paris-Saclay}
+
+\date[MAT342]{MAT 342 : Théorie de Fourier - 2022}
+
+\titlegraphic { 
+\begin{tikzpicture}[overlay,remember picture]
+\node[right=10pt] at (current page.150){
+    \includegraphics[height=1.3cm]{upsud.PNG}
+};
+\end{tikzpicture}
+}
+
+
+%------------------------------------------------------------
+%beginning of each section and highlights the current section
+
+\AtBeginSection[]{
+  \begin{frame}
+    \frametitle{Sommaire}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+
+% 1.----------------------------- ToC ----------------------------
+
+\begin{frame}
+\frametitle{Sommaire}
+\tableofcontents
+\end{frame}
+
+
+% 2.---------------------------------------------------------
+
+\section{Définition}
+
+
+%3. ---------------------------------------------------------
+
+\begin{frame}
+\frametitle{Définition}
+
+\begin{block}{Défintion}
+Soit $f : \R^n \ra \C$ intégrable, on note sa transformée de Fourier $\hat{f}$ ( ou $\fF(f)$) :  $$\hat{f} : \xi\in\R^n \mapsto \int_\R f(x) e^{-2i\pi x\xi} \dx$$
+\end{block}
+
+
+\begin{itemize} %<1-> means 1st slide and after and <2> only 2nd slide
+    \item<1-> On peut aussi le définir :\\ • $\hat{f}(\xi)\mapsto \int_\R f(x) e^{-x\xi}\dx$
+    \item<2-> • $\hat{f}(\xi)\mapsto \frac{1}{(\sqrt{2\pi})^n}\int_\R f(x) e^{-x\xi}\dx$
+\end{itemize}
+(La seule différence sera les coefficient des formules)
+
+\end{frame}
+
+
+%4. ---------------------------------------------------------
+
+
+\begin{frame}
+\frametitle{Exemple}
+\begin{exemple}
+Calculez la transformée de Fourier de $\mathbbm{1}_{[a,b]}$ et de $x\mapsto e^{-|x|}$.\\
+\end{exemple} \pause
+
+\begin{equation*}
+   \begin{split} 
+        \hat{f}(\xi) &= \int_\R e^{-|x|} e^{-2i\pi x\xi}\,dx = \Pause \int_{\R^-} e^{x(1-2i\pi\xi)}dx\; + \; \int_{\R^+} e^{x(-1-2i\pi\xi)}dx \\
+        &\cul[OliveGreen]{ = \frac{2}{1+4\pi\xi^2} }\,.
+    \end{split}  
+\end{equation*}
+
+\end{frame}
+
+
+%5. ---------------------------------------------------------
+
+\section{Propriétés}
+
+
+%6. ---------------------------------------------------------
+
+\begin{frame}
+\frametitle{Propriétés}
+
+Soient la translation $\tau_y(f) : x\in\R^n \mapsto f(x-y)$ et $\sC_{\ra0}$ l'ensemble des fonctions continues convergeant vers $0$ en $\pm\,\infty$.
+
+\begin{alertblock}{Propriétés}
+Soient $f,g\in L^1(\R^n)$, $\lambda\in\R$ et $k\in\N$.
+
+\begin{enumerate}
+    \item Si $h : x\mapsto e^{2\pi i \lambda x}f(x)$, alors $h$ intégrable et $\hat{h}=\tau_\lambda f$.
+    \item $\fF(\tau_\lambda f)(\xi) = e^{-2i\pi x\xi} \hat{f}(\xi)$.
+    \item $\fF (f \ast g) = \hat{f}\hat{g}$.
+    \item Si $\forall \alpha\in\N^n\; |\alpha|\leq k, (x\mapsto x^\alpha f(x))\in L^1(\R)$, alors $\hat{f}\in\sC^k$ et $\partial^\alpha f = \fF[(-2i\pi x)^\alpha f(x)]$.
+    \item Si $f\in\sC^k$ et $\forall |\alpha|\leq k, \;\partial^\alpha f\in L^1$ et $\in \sC_{\ra 0}$ avec $k-1$, alors $\fF(\partial^\alpha f)(\xi) = (2i\pi\xi)^\alpha \hat{f}(\xi)$.
+\end{enumerate}
+
+\end{alertblock}
+
+\end{frame}
+
+%7. ----------------------------------------------------
+
+\section{Transformée inverse}
+
+
+\end{document}
