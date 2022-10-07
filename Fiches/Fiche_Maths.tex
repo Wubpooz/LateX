@@ -1,0 +1,1401 @@
+\documentclass[12 pt]{book}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage[top=2cm, bottom=2cm, left=2.6cm, right=2.6cm]{geometry}
+\usepackage{setspace}
+\usepackage{eucal}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{fourier-orns}
+\usepackage{centernot}
+\usepackage{multirow}
+
+\everymath{\displaystyle}
+
+\title{Fiche Mathématiques \\ PCSI - 1A}
+\author{Mathieu Waharte}
+\date{2019 - 2022}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mB}{\mathcal{B}}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\mD}{\mathcal{D}}
+\newcommand{\mE}{\mathcal{E}}
+\newcommand{\mF}{\mathcal{F}}
+\newcommand{\mG}{\mathcal{G}}
+\newcommand{\mH}{\mathcal{H}}
+\newcommand{\mI}{\mathcal{I}}
+\newcommand{\mJ}{\mathcal{J}}
+\newcommand{\mK}{\mathcal{K}}
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mM}{\mathcal{M}}
+\newcommand{\mN}{\mathcal{N}}
+\newcommand{\mO}{\mathcal{O}}
+\newcommand{\mP}{\mathcal{P}}
+\newcommand{\mQ}{\mathcal{Q}}
+\newcommand{\mR}{\mathcal{R}}
+\newcommand{\mS}{\mathcal{S}}
+\newcommand{\mT}{\mathcal{T}}
+\newcommand{\mU}{\mathcal{U}}
+\newcommand{\mV}{\mathcal{V}}
+\newcommand{\mW}{\mathcal{W}}
+\newcommand{\mX}{\mathcal{X}}
+\newcommand{\mY}{\mathcal{Y}}
+\newcommand{\mZ}{\mathcal{Z}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+\newcommand{\Mat}{\text{Mat}}
+
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\La}{\Leftarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\Da}{\Leftrightarrow}
+\newcommand{\da}{\leftrightarrow}
+
+\newcommand{\0}{\emptyset}
+\newcommand{\bigzero}{\mbox{\normalfont\Large\bfseries 0}}
+\newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\newcommand{\SN}{\sum_{i=1}^n}
+\newcommand{\SI}{\sum_{n=0}^{+\infty}}
+\newcommand{\PN}{\prod_{i=1}^n}
+\newcommand{\TI}{\xrightarrow[+\infty]{}}
+\newcommand{\LI}{\lim_{n\to +\infty}}
+\newcommand{\dt}{\; \text{d}t}
+\newcommand{\dx}{\; \text{d}x}
+
+
+\chapter*{PCSI}
+\section*{Bases et Fonctions usuelles} 
+
+\begin{flushleft}
+\begin{doublespace}
+	• périodicité : $\forall x \in D_f, x+T \in D_f$ et $ f(x+T)=f(x)$ \\
+	• $f$ bornée sur $A \Leftrightarrow |f|$ majoré sur $A$.\\
+	•$f\circ f^{-1}=Id_E$ si $f$ strictement monotone alors c'est une bijection \\
+	• asymptote oblique si $\underset{x \rightarrow \pm \infty}{\text{lim}} f(x)-(ax+b)=0$ \\
+	• $(g\circ u)'=u' \times g'\circ u$ \quad $\underset{x \rightarrow a}{\text{lim}} \frac{f(x)-f(a)}{x-a} = f'(a)$ \\
+	$(f^{-1})'=\frac{1}{f'\circ f^{-1}}$ \quad $\Big| |a|-|b| \Big| \leq |a+b| \leq |a|+|b|$ \\
+	une bijection et sa bijection réciproque ont le même sens de variation \\
+	$e^x \geq x+1$ \ ;  $\underset{x \rightarrow 0}{\text{lim}} \frac{e^x -1}{x} = 1$ \ ;  $\forall x> -1, \ln(1+x) \leq x$ \ ;  $\underset{x \rightarrow 0}{\text{lim}} \frac{\ln(1+x)}{x} = 1$ \ ;  $\underset{x \rightarrow 1}{\text{lim}} \frac{\ln(x)}{x-1} = 1$ \\
+	$\alpha , \beta > 0 :$ $\underset{x \rightarrow + \infty}{\text{lim}} \frac{(\ln(x))^\alpha}{x^\beta} = 0$ \ ;  $\underset{x \rightarrow 0}{\text{lim}}\ x^\beta \big| \ln(x) \big|^\alpha = 0 $ \ ; $\underset{x \rightarrow + \infty}{\text{lim}} \frac{e^{\alpha x}}{x^\beta} = + \infty$ \ ; $\underset{x \rightarrow - \infty}{\text{lim}} |x|^\beta e^{\alpha x} = 0$ \\
+	$x^\alpha = e^{\alpha \ln x}$ \ ; $(a^x)' = \ln(a) a^x$ \ ; $\log_n(x) = \frac{\ln(x)}{\ln(n)}$ \\
+	$\text{ch}(x) = \frac{e^x + e^{-x}}{2}$ \ ; $\text{sh}(x) = \frac{e^x - e^{-x}}{2}$ \\
+	sh impaire et $\text{sh}'(x)=\text{ch}(x)$ \ ; ch paire et $\text{ch}'(x)=\text{sh}(x)$ \ $\text{ch}^2(x) - \text{sh}^2(x) = 1$ \ $\text{th}(x) = \frac{\text{sh}(x)}{\text{ch}(x)}$ \\ 
+	
+	\text{ } \\
+	$ \cos(2x) = \cos^2(x) - \sin^2(x) = 2 \cos^2(x) - 1 = 1- 2 \sin^2{x}$ \ ; $\sin(2x)= 2 \cos(x) \sin(x)$ \\
+	$ \cos a \cos b = \frac{\cos(a+b) + \cos(a-b)}{2}$ \ ; $\sin a \sin b = \frac{- \cos(a+b) + \cos(a-b)}{2}$ \ ; $\sin a \cos b = \frac{\sin(a+b) + \sin(a-b)}{2}$ \\
+	$ \cos a + \cos b = 2 \cos \frac{a+b}{2} \cos \frac{a-b}{2}$ \ ; $\cos a - \cos b = -2 \sin \frac{a+b}{2} \sin \frac{a-b}{2}$ \ ; $\sin a + \sin b = 2 \sin \frac{a+b}{2} \cos \frac{a-b}{2}$ \ ; $\sin a - \sin b = 2 \cos\frac{a+b}{2} \sin\frac{a-b}{2}$ \\
+	arcsin défini sur $[-1;1]$, impaire, dérivable sur $]-1;1[ $ et arcsin'$(x) = \frac{1}{\sqrt{1-x^2}}$ \\
+	arcos défini sur $[-1;1]$, pas paire, dérivable $]-1;1[$ et arcos'$(x) = \frac{-1}{\sqrt{1-x^2}}$ \\
+	arctan : $\mathbb{R} \rightarrow ]-\frac{-\pi}{2} ; \frac{\pi}{2}[$, impaire, dérivable sur $\mathbb{R}$ et arctan'$(x) = \frac{1}{1+x^2}$\\
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Nombre Complexes}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	$z\in i\mathbb{R} \Leftrightarrow z=-\bar{z}$ et $z\in \mathbb{R} \Leftrightarrow z=\bar{z}$ \ ; $|z|=|\bar{z}|$ \ ; $z\bar{z}=|z|^2$ \\
+	si $\exists \lambda \in \mathbb{R}^{+}, z'=\lambda z$ alors $\Big| |z| - |z'| \Big| \leq |z+z'| \leq |z| + |z'|$ \\
+	$\cos \theta = \frac{e^{i \theta} + e^{-i \theta}}{2}$ \ ; $\sin \theta = \frac{e^{i \theta} - e^{-i \theta}}{2 i}$ \ ; $(\cos \theta + i \sin \theta)^n = \cos(n \theta)+i\sin(n \theta)$ \\
+	$e^{i\theta} + e^{i\theta'} = e^{i\frac{\theta +\theta'}{2}} \Big( e^{i \frac{\theta - \theta'}{2}} + e^{i \frac{-\theta + \theta'}{2}} \Big)$ \ ;  arg$(\bar{z})\equiv- $arg$(z) [2\pi]$ \ ; arg$(z^n) = n \ \text{arg}(z) [2 \pi]$\\
+	arg$(zz') \equiv \text{arg}(z) + \text{arg}(z') [2\pi]$ \ ; $\text{arg}(-z) \equiv \pi + \text{arg}(z) [2\pi]$\\
+	\text{ } \\
+	$e^z = e^a \cdot e^{ib} = e^a(\cos b + i \sin b)$ \ ; $|e^z|=e^{Re(z)} $ \ ; $ e^z=e^{z'} \Leftrightarrow \text{arg}(z-z') \in 2\pi \mathbb{Z} $ \\
+	\text{ } \\
+	\underline{racines n-ièmes :} $w_k =e^{\frac{2i k\pi}{n}}$ pour $0\leq k \leq n-1$ et $\mathbb{U}_n = \{w_k \ | \ 0 \leq k \leq n-1\} $ \\
+	$\sum\limits_{k=0}^{n-1} w_k = 0$ \ ; $ j=e^{i \frac{2 \pi}{3}} = - \frac{1}{2} + \frac{\sqrt{3}}{2}$ \\
+	pour $z^n=Z$ : $Z=\text{R} e^{i\theta}$, il y a n racines de $Z$ : $z_k= \sqrt[n]{\text{R}} e^{i\frac{2k\pi + \theta}{n}} \quad \forall k \in [| 0;n-1|]$ \\
+	$z_k = z_0 \times w_k$, $z_0$ une racine particulière.\\
+\end{doublespace}
+\end{flushleft}
+
+\newpage
+\section*{Primitives et Equations Différentielles}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	primitive de exp complexe : F$(x)=\frac{1}{\lambda}e^{\lambda x}$ de $f(x) = e^{\lambda x}, \ \lambda \in \mathbb{C}$\\
+	$\frac{u'}{u^2} \rightarrow - \frac{1}{u} +\ln$ \ ; $\frac{1}{a^2+x^2} \rightarrow \frac{1}{a} \arctan(\frac{x}{a}) + \ln $ \ ; $ \tan' u = u'(1+\tan^2 u)$ ou $ \frac{u'}{\cos^2 u}$\\
+	\text{}\\
+	\begin{tabular}{|c|c|c|}
+	\hline
+	$f$ & F & Condition  \\
+	\hline
+	$u' u^n \ (n\in \mathbb{N})$ & $\frac{1}{n+1} u^{n+1}$ & $u(x) \ne 0$ sur I si $n\in \mathbb{Z}^-$  \\
+	\hline
+	 $\frac{u'}{u^n} \ (n\in\mathbb{N})$ & $-\frac{1}{n-1} \frac{1}{u^{n-1}}$ & $u(x)\ne 0$ sur I\\
+	\hline
+	 $u' \cdot u^\alpha \ (\alpha \notin \mathbb{Z})$ & $\frac{1}{\alpha + 1} u^{\alpha +1}$ & $u(x)>0$ sur I\\
+	\hline
+	$\frac{u'}{\sqrt{u}}$ & $ 2 \sqrt{u} $ & $ u(x)>0$ sur I  \\
+	\hline
+	 $u' e^u$&$e^u$& rien\\
+	\hline
+	 $\frac{u'}{u}$&$\ln |u|$&$u(x)\ne 0$ sur I\\
+	\hline
+	 $u'\sin u $ & $ - \cos u$ & rien\\
+	\hline
+	 $u'\cos u$&$\sin u$& rien\\
+	\hline
+	$\frac{u'}{\sqrt{1-u^2}}$&arcsin$(u)$&$u(x) \in ]-1;1[$\\
+	\hline
+	$\frac{-u'}{\sqrt{1-u^2}}$& arcos$(u)$&$u(x) \in ]-1;1[$\\
+	\hline
+	$\frac{u'}{1+u^2}$& arctan$(u)$& rien\\
+	\hline
+	\end{tabular}
+	
+	\text{ } \\
+	$f(x)\leq g(x) \Rightarrow \int_a^b f(x) \dx \leq \int_a^b g(x) \dx$ \\
+	\underline{IPP :} $u$ et $v$ de classe $C^1$, $\int_a^b u'(x)v(x) \dx = [u(x)v(x)]_a^b - \int_a^b u(x)v'(x) \dx$
+	\text{ } \\
+	\underline{Changement de variable :} $\varphi$ de classe $C^1$ sur [a,b] et $f \ C^0$ sur $\varphi([a,b])$. \\
+	$\int_{\varphi(a)}^{\varphi(b)} f(x) \dx = \int_a^b f(\varphi(t)) \ \varphi'(t) \dt$.\\
+	\text{ } \\
+	• \underline{Premier odre [$y'+ a(x)y=b(x)]$}:
+	\begin{itemize}
+		\item normaliser (= tout mettre sur le $y$)
+		\item équation homogène (on met 0 au lieu de $b(x)$) \ $S_H = C e^{-A(x)}$
+		\item solution particulère (de tête sinon par méthode de variation de la constante) \ $y_p (x) = C(x) e^{-A(x)}$ avec $C'(x)=b(x) e^{A(x)}$
+		\item solution finale : $S_E (I) = \{ x\in I \mapsto y_H+y_p\}$
+	\end{itemize}
+	Problème de Cauchy (une solution) :  $ \left\{\begin{array}{ll} y' + a(x)y = b(x) \\  y(x_0) = y_0 \end{array} \right.$
+	
+	\text{ } \\
+	• \underline{Second ordre [$ay'' + by' + cy = f(x)$]} :
+	\begin{itemize}
+		\item équation caractéristique ($ a r^2 + b r + c = 0$)
+		\begin{tabular}{|c|c|c|}
+		\hline
+		 & $S_H$ avec $a,b,c \in \mathbb{C}, (C_1,C_2)\in \mathbb{C}^2$ & $S_H$ avec $a,b,c \in \mathbb{R}, (C_1,C_2)\in \mathbb{R}^2$  \\
+		\hline
+		$r_1 \ne r_2$ &  & • \underline{si $r_1,r_2 \in \mathbb{R}$} : $y(x) = C_1 e^{r_1 x} + C_2 e^{r_2 x}$ \\ 
+		& $y(x)=C_1 e^{r_1 x} + C_2 e^{r_2 x}$ & • \underline{si $r_1,r_2 \in \mathbb{C}\ (r_1=\alpha + i \beta \  \text{et} \  r_2 = \bar{r_1} )$:} \\
+		& & $y(x) = C_1 e^{r_1 x} + C_2 e^{r_2 x}$  \\
+		\hline
+		$r_1 = r_2$ & $y(x) = (C_1 x + C_2) e^{r x}$ & $y(x) = (C_1 x + C_2) e^{r x}$ \\
+		\hline
+		\end{tabular}
+		
+		\item \underline{$f(x) = A e^{\lambda x} \ (a,b,c,A,\lambda \in \mathbb{C}):$}
+			\begin{itemize}
+				\item $\lambda$ non racine de l'équation caractéristique $\rightarrow y_p(x) = B e^{\lambda x}$
+				\item $\lambda$ racine simple de l'équation caractéristique $\rightarrow y_p(x) =  Bx e^{\lambda x}$
+				\item $\lambda$ racine double de l'équation caractéristique $\rightarrow y_p(x) = Bx^2 e^{\lambda x}$
+			\end{itemize}
+		
+		\item \underline{$f(x) = B\cos(\omega x)$ ou $ B\sin(\omega x) \ (a,b,c,B,\omega \in \mathbb{R}):$}
+			\begin{itemize}
+				\item $i\omega$ non racine de l'eq caractéristique $\rightarrow y_p(x) = C \cos(\omega x) + D \sin(\omega x)$
+				\item $i\omega$ racine simple de l'eq caractéristique $\rightarrow y_p(x) =  x (C \cos(\omega x) + D \sin(\omega x))$
+				\item $i\omega$ racine double de l'eq caractéristique $\rightarrow y_p(x) = x^2 (C \cos(\omega x) + D \sin(\omega x))$
+			\end{itemize}
+		\item \underline{$f(x) = P(x) e^{\lambda x} \ (a,b,c \in \mathbb{K} \text{et P un polynôme de degré n}):$}
+			\begin{itemize}
+				\item $\lambda$ non racine de l'équation caractéristique $\rightarrow y_p(x) = Q(x) e^{\lambda x} \ \ \text{deg}(Q)=n$
+				\item $\lambda$ racine simple de l'équation caractéristique $\rightarrow y_p(x) =  xQ(x) e^{\lambda x}$
+				\item $\lambda$ racine double de l'équation caractéristique $\rightarrow y_p(x) = x^2Q(x) e^{\lambda x}$
+			\end{itemize}
+		\item Problème de Cauchy (une solution) :  $ \left\{\begin{array}{ll} ay''+ by' + cy = f(x) \\  y(x_0) = y_0 \ \text{et}\ y'(x_0)=y'_0 \end{array} \right.$
+	\end{itemize}
+	• Si $f(x)$ ou $b(x) = \sum \text{fonctions} \Rightarrow$ Solution$ = \sum \text{solution chaque fonction} + S_H$
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Ensembles, Applications et Relations d'équivalence}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	E $\subset$ F ssi $\forall x \in$ E, $x \in$ F \ ; E $=$ F $\Leftrightarrow ($E $\subset$ F) et (F $\subset$ E) \ \ 
+	$P($E) : ensemble des sous-ensembles de E \ ; complémentaire d'une partie A de E : $C_\text{E}^\text{A} = \{ x\in \text{E} \ | \ x\notin \text{A}$ \}
+	\underline{produit cartésien :} E$\times$F = \{$(a,b) \ | \ a\in$ E$ , \  b \in$ F \} \\
+	$\mathcal{F} ($E,F)$ = \text{F}^\text{E}$ ensemble des applications de E dans F \\
+	restriction de $f$ à A : $f_{| \text{A}} : \left\{\begin{array}{ll} \text{A}\rightarrow \text{F}  \\  a \mapsto f(a) \end{array} \right.$
+	
+	\text{ } \\
+	\underline{injection :} au + un antécédant et $\forall(x,y)\in \text{E}^2, f(x) = f(y) \Rightarrow x=y$\\
+	\underline{surjection :} au - un antécédent et $\forall (x,y) \in \text{E}\times\text{F}, y=f(x)$ \ (ou $f$(E) = F)\\
+	\underline{bijection :} injection et surjection\\
+	
+	\text{ } \\
+	relation binaire $\mathcal{R}$ : vraie pour des $(x,y)$, noté $x\mathcal{R}$, et fausse pour autre, noté $x\mathcal{R}y$ \\
+	\underline{réflexive :} $\forall x \in \text{E}, x\mathcal{R}x$ \\
+	\underline{symétrique :} $\forall (x,y) \in \text{E}^2, x\mathcal{R}y \Rightarrow y\mathcal{R}x$ \\
+	\underline{antisymétrique :} $\forall (x,y) \in \text{E}^2, (x\mathcal{R}y \ \text{et} \ y\mathcal{R}x ) \Rightarrow x=y$ \\
+	\underline{transitive :} $\forall (x,y,z) \in \text{E}^3, (x\mathcal{R}y \ \text{et} \  y\mathcal{R}z) \Rightarrow x\mathcal{R}z$ \\
+	\underline{relation d'équivalence :} réflexive, symétrique, transitive \\
+	\underline{relation d'ordre :} réflexive, antisymétrique, transitive \\
+	cl$(x) = \{y \in \text{E}, x\mathcal{R}y \}$ \\
+	
+\end{doublespace}
+\end{flushleft}
+
+\newpage
+\section*{Sommes, Produits, Coefficients binomiaux}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	\underline{télescopage :} $\sum\limits_{k = m}^n (u_{k+1} - u_k) = u_{n+1} - u_m$ \ ; $\prod\limits_{k=m}^n \frac{u_{k+1}}{u_k} = \frac{u_{n+1}}{u_m}$\\
+	$(u_n)$ arithmétrique : $\sum\limits_{k = m}^n u_k = \frac{u_m + u_n}{2} \times (n-m+1)$ \\
+	$(u_n)$ géométrique (et $q\ne 1$) : $\sum\limits_{k = m}^n u_k = u_m \times \frac{1 - q^{n-m+1}}{1-q}$\\
+	$a^n-b^n = (a-b)\Big(\sum\limits_{k=0}^{n-1} a^k b^{n-1-k)}\Big)$ \ ; $(a+b)^n = \sum\limits_{k=0}^n \binom{k}{n} a^k b^{n-k}$\\
+	\text{ } \\
+	$\binom{p}{n} = \frac{n!}{p!(n-p)!} = \binom{n-p}{n} = \binom{p-1}{n-1}+\binom{p}{n-1}  \ \text{;} \ p\cdot\binom{p}{n} = n\cdot\binom{p-1}{n-1}$\\
+	\text{}\\
+	$\sum\limits_{m\leq i,j\leq n} a_{i,j} = \sum\limits_{i=m}^n \sum\limits_{j=m}^n a_{i,j}$ \ ; $\sum\limits_{m\leq i \leq j \leq n} a_{i,j} = \sum\limits_{i=m}^n \sum\limits_{j=i}^n a_{i,j} = \sum\limits_{j=m}^n \sum\limits_{i=m}^j a_{i,j}$\\
+	$\sum\limits_{m\leq i,j \leq n} a_{i,j} = \sum\limits_{m \leq i<j\leq n} a_{i,j} + \sum\limits_{m\leq j < i \leq n} a_{i,j} + \sum\limits_{i=m}^n a_i$ \ ; $\sum\limits_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$\\
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Entiers naturels et dénombrement}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	• $a|b \Rightarrow b=na$ (b multiple de a, a diviseur de b) \ $a\mathbb{N}$, l'ensemble des multiples de $a$\\
+	$\mathcal{D}(b)$, l'ensemble des diviseurs de $b$ \ ;  division euclidienne : $a=bq+r \ 0\leq r<b$.\\
+	$|$ est une relation d'ordre \ ; $a|b \Leftrightarrow \text{pgcd}(a,b)=a$ \ ; pgcd$(a,0)=a$ \ ; pgcd$(a,1)=1$ ; pgcd($a,b)=1 \rightarrow$ premiers entres-eux.\\
+	\underline{algo d'Euclide :} pgcd$(a,b)=$pgcd$(a,r$)\\
+	$d|b$ et $d|a \Leftrightarrow d|\text{pgcd}(a,b)$ \ ; ppcm$(ca,cb)=c$ ppcm$(a,b)$ \ ; pgcd$(a,b) \times$ppcm$(a,b)=a\times b $\\
+	\underline{décomposition en facteurs premiers :} $n=\prod\limits_{p\in \mathcal{P}} p^{\alpha_p} \quad \alpha_p:p\text{-valuation de } n$\\
+	$a|b \Leftrightarrow \forall p\in \mathcal{P}, \alpha_p \leq \beta_p$ \ ;\ pgcq$(a,b)=\prod\limits_{p\in \mathcal{P}} p^{\text{min}(\alpha_p ,\beta_p)}$ \ ; \ ppcm$(a,b)=\prod\limits_{p\in \mathcal{P}} p^{\text{max}(\alpha_p ,\beta_p)}$\\
+	
+	\text{}\\
+	• Card(E)$=|$E$|=\#$E \ ; E injectif dans F $\Leftrightarrow$ Card(E)$\leq$Card(F)\\
+	 E surjectif à F $\Leftrightarrow$ Card(E)$\geq$Card(F) \ ; $|$E$|$=$|$F$|$, $f:$E$\rightarrow$F, on a : $f$ injective $\Leftrightarrow$ surjective\\
+	 Card(A$\cup$B) = Card(A) $+$ Card(B)$-$ Card(A$\cap$B) \ ; \ Card(B\textbackslash A)= Card(B)$-$ Card(A$\cap$B)\\ 
+	 $\text{Card}\Big(\bigcup_{i=1}^n A_i \Big)= \sum\limits_{i=1}^n \text{Card}(A_i) \ ;  \text{Card(A}\times \text{B}) = \text{Card(A)}\times \text{Card(B)}$\\
+	 \text{}\\
+	 $\text{F}^\text{E}$, l'ensemble des applications de E dans F est fini et Card$\big(\text{F}^\text{E}\big) = \big( \text{Card(F)} \big)^\text{Card(E)}$\\
+	 Les $(a_1,a_2,\cdots ,a_p)$ de $\text{A}^p$ sont les $p$-listes, il y en a Card$\big(\text{A}^p\big) = \text{Card(A)}^p$\\
+	 Si $1\leq p \leq n$, il y a $\frac{n!}{(n-p)!}$ $p$-listes $\ne$ de A = nb d'injections de E dans F $|$E$|$=$p$ et $|$F$|$=$n$\\
+	$n!$ : nombre de permutations de A (bijections de A dans A)  \ ; \ Card($\mathcal{P}$(A))$= 2^{\text{Card(A)}}$\\
+	Si $|$E$|$=$n$, le nb de parties de E à $p$ éléments ($0\leq p \leq n)$ est : $\binom{p}{n} = \frac{n!}{p! (n-p)!}$\\
+	\text{}\\
+	\begin{tabular}{|c|c|c|c|}
+		\cline{2-4}
+		 \multicolumn{1}{c|}{} & $p$-uplets & $p$-uplets sans répétitions & ensemble de E à $p$ éléments ($|$E$|$=$n$)  \\
+		\hline
+		ordre compte & OUI & OUI & NON \\ 
+		\hline
+		répétition & OUI & NON & NON \\
+		\hline
+		cardinal & $n^p$ & $\frac{n!}{(n-p)!}$ & $\binom{p}{n}$\\
+		\hline
+	\end{tabular}
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Système Linéaire}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	• échelonnée $\Leftrightarrow$ si 1 ligne et les $b_{\text{ext}} =0$, le $1^{\text{er}}$ pivot est à droite de celui de la ligne $k-1$.\\
+	• échelonnée réduite $\Leftrightarrow$ nulle OU pivot = 1 et seuls $\ne 0$ sur les colonnes.\\
+	pivot = $1^{\text{er}}$ coeff $\ne 0$ de la ligne \ ; \ rg(A) = nb de pivots de A \\
+	 inconnus principales = pivots étant des inconnus.\\ 
+	 \underline{système de Cramer :} ayant autant de lignes, de colonnes et d'inconnus.\\
+
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Calcul Matriciel}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	Symbole de Kronecker : $ \delta_{i,j} = \left\{\begin{array}{ll} 1\text{ si } i=j \\  0 \text{ si } i\ne j \end{array} \right.$ \\
+	$\sM_{n,p}(\K) = $ ensemble des matrices de taille $n\times p$ à coeffs dans $\K$.\\
+	$0_{n,p}$, matrice nulle, \ $I_n$ matrice identité \ (commutent avec toutes matrices)\\
+	$A\in \sM_{n,p}(\K),\; B\in \sM_{p,q}(\K) \Ra AB=(c_{i,j}) \in \sM_{n,q}(\K)$ avec $c_{i,j} = \sum_{k= 1}^p a_{i,k} b_{k,j}$\\
+	$A\in \sM_{n,p}(\K)$ et $B\in \sM_{p,q}(\K) \Ra \,^t(A\times B) = \,^tA\times \,^tB$\\
+	D ou $\Delta =$ diag$(\lambda_1,\cdots,\lambda_n)$ matrice diagonale\\
+	$\text{T}_n^+(\mathbb{K}) =$ ensemble des matrices triangulaires supérieures ($\text{T}_n^-$ pour les inférieures)\\
+	Le produit de 2 matrices diag (trig sup,...) est diag (trig sup,...) et les coeff de la diag se multiplient entres-eux\\
+	Si $\,^tA = A \Ra$ matrice symétrique ($S_n(\mathbb{K}$)), si $\,^tA = -A$, matrice antisymétrique ($A_n(\mathbb{K}$))\\
+	$I_n^k = I_n$ et $0_n^k = 0_n$ et $A^0 = I_n$ \\
+	Si $A$ et $B$ commutent : ($A\times B)^k = A^k \times B^k$ et $(A + B)^p = \sum\limits_{k=0}^p \binom{k}{p} A^k \times B^{p-k}$\\
+	\text{ }\\
+	$A$ inversible $\Da \exists ! B\in \sM_n(\K) $ tq $ AB=BA=I_n$ \ leur ensemble est $\sG\sL_n(\K)$\\
+	$(\lambda A \times \mu B)^{- 1} = \frac{1}{\mu}B^{- 1} \times \frac{1}{\lambda}A^{- 1}$\\ 
+	$A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ inversible ssi $ad- bc \ne 0$ et $A^{- 1} = \frac{1}{ad - bc}\begin{pmatrix} a & b \\ c & d \end{pmatrix}$\\
+	
+	\text{ }\\
+	\underline{Méthode du pivot de Gauss-Jordan :} on applique à $I_n$ les opération pour échelonner réduire la matrice, la matrice à partir de $I_n$ et $A^{- 1}$\\
+	\underline{transposition :} $L_i \leftrightarrow L_j$ \ \underline{dilatation :} $L_i \leftarrow \lambda L_i$ \  \underline{transvection :} $L_i \leftarrow L_i + \lambda L_j$\\
+
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Nombres Réels}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	$n= \lfloor x \rfloor$ ou E$(x)$ $\Leftrightarrow$ \; $n\leq x < n+1 \; \Leftrightarrow x-1 < n \leq x$\\
+	$a_n = \frac{\lfloor 10^n x \rfloor}{10^n}$ (approxi décimale par défaut) et $b_n = \frac{\lfloor 10^n x \rfloor + 1}{10^n}$ (... par excès) \ ; $a_n\leq x \leq b_n$\\
+	toute partie non et majorée/minorée de $\mathbb{R}$ admet une borne sup/inf.\\
+
+\end{doublespace}
+\end{flushleft}
+
+\newpage
+\section*{Suites Numériques}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	$\mathbb{R}^\mathbb{N} =$ ensemble des suites réelles\\
+	\underline{arithmétique :}$u_n=u_p+(n-p)r$ et $\sum\limits_{k=p}^n u_k = (n-p+1)\times \frac{(u_p + u_n)}{2}$ \\
+	\underline{géométrique :} $u_n = u_p \times q^{n-p}$ et $\sum\limits_{k = p}^n u_k = u_p \times \frac{1 - q^{n -p + 1}}{1 - q}$\\
+	
+	\text{ }\\
+	\underline{Méthode (suite arithmético-géométrique de $u_{n+1} = au_n + b$) :}\\
+	
+	\begin{enumerate}
+		\item on cherche le point fixe $l = a l+b$
+		\item on montre que $v_n = u_n - l$ est géométrique
+		\item on trouve l'expression générale de $v_n$
+		\item on en déduit celle de $u_n$
+	\end{enumerate}
+	\underline{Suite récurrente d'ordre 2 :}\\
+	\text{}\\
+	\begin{tabular}{|c|c|c|}
+	\cline{2-3}
+	\multicolumn{1}{c|}{}& complexe ; $\Delta$ de $r^2 = a r + b$ & réelle ; $\Delta$ de $r^2 = a r + b$ \\
+	\hline
+	$r_1 \ne r_2$ & $\exists ! (\lambda , \mu)\in \mathbb{C}^2, \forall n\in \mathbb{N}$ & $\exists ! (\lambda , \mu)\in \mathbb{C}^2, \forall n\in \mathbb{N}$ \\
+	& $u_n = \lambda \, r_1^n + \mu \, r_2^n$ &  \underline{$\Delta > 0$ :} $u_n = \lambda \, r_1^n + \mu \, r_2^n$\\
+	& & \underline{$\Delta < 0 (r_{1,2} = r\, e^{\pm i \theta})$ :} \\
+	& & $u_n =r^n [ \lambda \cos{(\theta n)} + \mu \sin{(\theta n)}]$\\
+	\hline
+	$r_1 = r_2$ & '', $u_n = (\lambda n + \mu) r^n$ &  '', $u_n = (\lambda n + \mu) r^n$\\
+	\hline
+	\end{tabular}
+	
+	\text{ }\\
+	• $u_n$ converge vers $l$ si : $\forall \varepsilon > 0 \ \exists n_0\in \N , \forall n\in \N \; (n\geq n_0 \Ra |u_n - l| \leq \varepsilon )$\\
+	• $u_n$ converge en $+\infty$ si : $\forall \text{A} > 0 \ \exists n_0\in \N , \forall n\in \N \; (n\geq n_0 \Ra |u_n - l| \geq$ A)\\
+	• $u_n$ converge en $-\infty$ si : $\forall \text{A} > 0 \ \exists n_0\in \N , \forall n\in \N \; (n\geq n_0 \Ra |u_n - l| \leq$ A)\\
+	\text{ }\\
+	$(u_n)$ et $(v_n)$, deux suites réelles, sont adjacentes si : $(u_n) \nearrow \, ; \, (v_n) \searrow \, ; \, (u_n - v_n) \TI 0$ alors $(u_n)$ et $(v_n)$ convergent vers $l$ et $u_n\leq l \leq v_n$\\
+	$(u_{\varphi (n)} )_{n\in \N}$ avec $\varphi \, : \N \ra \N$ strictement $\ne$ est suite extraite $(u_n)$ et converge vers la même limite que $(u_n)$\\
+	\text{ }\\
+	\underline{Méthode (étude de $u_{n+1} = f(u_n)$) :}\\
+	\begin{enumerate}
+		\item calcul des $1^{\text{er}}$ termes $\ra$ idées
+		\item on vérifie que la suite est bien définie : $\forall n\in \N , u_n\in$ I (pour calculer $u_{n+1} = f(u_n)$
+		\item on cherche le sens de varia de $(u_n \Ra$ on étudie le signe $u_{n+1} - u_n = f(u_n) - u_n$
+		\item si $(u_n)$ est monotone, on prouve qu'elle est majorée ou minorée ($\ra$ converge)
+		\item si converge vers $l$, si $f$ continue, $f(l) = l$
+	\end{enumerate}
+	• $u_n = o (v_n)$ si $\underset{n \ra +\infty}{\text{lim}} \frac{u_n}{v_n} = 1$ (transitive et symétrique) \ non additionnable (ou -)\\
+	$u_n ~ v_n \da u_n = v_n + o (v_n)$\\
+	$u_n \ra 0 \Ra \ln(1+u_n) \sim u_n$ \ ; $e^{u_n} - 1 \sim u_n$ \ ; $\sin(u_n) \sim u_n$ \ ; $\cos(u_n) - 1 \sim \frac{u_n^2}{2}$\\
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Polynômes}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	$\K [X] =$ ensemble des polynômes à coeff de $\K$.\\
+	deg (polunôme nul) $= - \infty$ \ ; $a_n$ est le coeff dominant \ ; si $a_n = 1$, P est unitaire\\
+	$\K_n[X] = \{P \, | \, \text{deg}(P)\leq n \}$\\
+	$P = \sum_{k = 0}^p a_k X^k$ et Q = $\sum_{k=0}^q b_k X^k \Ra PQ = \sum_{n \leq 0} c_n X^n$ avec $c_n = \sum_{k=0}^n a_k b_{n - k}$\\
+	le binôme de Newton et $\text{P}^n - \text{Q}^n$ s'appliquent aussi\\
+	
+	\text{ }\\
+	deg($P + Q) \leq$ max(deg $P$, deg $Q$) \ ; deg($\lambda P) = -\infty$ si $\lambda = 0$ \ ; deg($PQ) = $deg $P + $deg $Q$\\
+	si deg $P \ne 0$ et deg $Q \leq 1$, deg($P\circ Q$) = deg $P \times\text{deg} Q$\\
+	
+	\text{ }\\
+	$P|Q \Ra P^n | Q^n \ P|Q$ et $Q|P \Ra \exists \lambda \in \K^*,\; P = \lambda Q ($même $a_n)$\\
+	$\exists Q\in \K[X], PQ = 1 \Da P\in \K^*$\\
+	\text{}\\
+	\text{ }\\
+	\underline{Méthode ( division eucl de $A$ par $B$ si deg $A$ = ? ou très grand et racines de $B$ connues) :}\\
+	$\exists! (Q,R)\in \K[X]^2$ tq $A = BQ + R$ avec deg $R$ < deg $B$\\
+	$B = X^2 + X - 2$ de racines $1$ et $-2$\\
+	$\Ra$ deg $R \leq 1$ \, donc $R =aX + b \; (a,b)\in \R^2 \Ra A = BQ + aX + b$\\
+	\underline{Pour $X = 1$ :} $A(1) = B(1)\times Q(1) + a + b$\\
+	\quad \quad \quad \quad \quad \quad$\Da 2 = 0 + a + b$\\
+	\underline{Pour $X = - 2$ :} $41 = - 2a + b$\\
+	  $\Ra \left\{\begin{array}{ll} 2 = a + b \\  41 = -2a + b\end{array} \right. \Da a = -13$ et $b = 15$\\
+	  
+	\text{ }\\
+	$(X - a)^\alpha \, | \, P$ avec $\alpha$ : multiplicité de la racine $a$ ( 0 si pas racine) \ deg $P' = $ deg $P - 1$\\
+	$\Big( (X - a)^n \Big)^{(k)} = \left\{\begin{array}{ll} (X - a)^{n - k} \times \frac{ n!}{(n - k)!} \ \text{si } k\leq n \\  0 \ \text{si } k\geq n+1 \end{array} \right.$\\
+	
+	\text{ }\\
+	\underline{Formules de Taylor :}\\
+	$P(X) = \sum_{k = 0}^n \frac{P^{(k)}(a)}{k!} \, (X - a)^k \ ; \ P(X + a ) = \sum_{ k = 0}^n \frac{P^{(k)}(a)}{k!} \, X^k$\\
+	\text{ }\\
+	Si $m =$ multiplicité de la racine $a$ : $P(a) =P'(a) = \cdots = P^{(m - 1)} (a) = 0$ et $P^{(m)} (a) \ne 0$\\
+	\text{ }\\
+	$A | B \Da$ les racines de $A$ sont racines de $B$ de $m_B \geq m_A$\\
+	
+	\text{ }\\
+	$P$ est irréductible ssi pas factorisable en $\prod$ de 2 polynômes de deg$\geq 1$\\
+	les polynômes complexes irréductibles sont de deg 1 et les réels de deg $\leq 2$\\
+	$P$ scindé dans $\K[X]$ ssi $\sum_{ k =1} m_k = $ deg $P$ ($m_k$ multiplicité de ses racines)\\
+	\text{ }\\
+	$P = a_0 + a_1X + \cdots + a_n X^n$ scindé et $x_1, \cdots, x_n$ ses racines :\\
+	$\sum_{k = 1}^n x_k = -\frac{a_{n -1}}{a_n}$ et $\prod_{ k =1}^n x_k = (- 1)^k \frac{a_0}{a_n}$\\
+		
+\end{doublespace}
+\end{flushleft}
+
+\section*{Limites, Continuité}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	• $f(x) \underset{x \ra a}{\longrightarrow} l\in\R$ : $a\in\R$ : $\forall \varepsilon > 0 \ \exists \delta > 0, \, \forall x\in \text{I} \; |x - a|\leq \delta \Ra |f(x) - l| \leq \varepsilon$\\
+	\qquad \qquad \qquad \qquad \ $a = + \infty$ : $\forall \varepsilon > 0 \ \exists A\in \R, \, \forall x\in \text{I} \ x\geq \Ra |f(x) - l|\leq \varepsilon$\\
+	• $f(x) \underset{x \ra a}{\longrightarrow} +\infty$ : $a\in\R$ : $\forall M\in\R \ \exists \delta > 0, \, \forall x\in \text{I} \; |x - a|\leq \delta \Ra f(x)\geq M$\\
+	• $f(x) \underset{x \ra a}{\longrightarrow} l\in\R$ : $a\in$ I : $\forall \varepsilon > 0 \ \exists \delta > 0, \, \forall x\in \text{I} \; a-\delta \leq x < a \Ra |f(x) - l| \leq \varepsilon$\\
+	
+	\text{ }\\
+	\underline{• continuité en a :} $\forall \varepsilon >0 \ \exists \delta > 0, \ \forall x\in \text{I} \ |x - a|\leq \delta \Ra |f(x) - f(a)| \leq \varepsilon$\\
+	\qquad \qquad \qquad \qquad $\Da f(x) \underset{x \ra a}{\longrightarrow} f(a)$ (limite atteinte)\\
+	
+	\text{ }\\
+	\underline{• prolongement par continuité (unicité) :} $a\in$ I, $f :$ I$\backslash\{a\} \ra \R$ si $f(x) \underset{x \ra a}{\longrightarrow} l\in \R$\\
+	alors un prolongement de $f$ est $g : \left\{\begin{array}{ll} \text{I} \ra \R \\ x \mapsto \left\{\begin{array}{ll} f(x) \ \text{si } x\ne a \\ l \ \text{si } x=a \end{array} \right.  \end{array} \right.$\\
+	
+	\text{ }\\
+	• $f$ est $k$-lipschitzienne si $\exists k\in \R_+^*, \; \forall (x,y)\in \text{I}^2 \ |f(x) - f(y)| \leq k|x - y|$  (donc $f$ est $C^0$)\\
+	
+\end{doublespace}
+\end{flushleft}
+
+\section*{Espaces Vectoriels}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	• \underline{EV de réf :} $\K^n \ ; \K[\text{X}] \ ; \sM_{n,p}(\K) \ ;\K^\R = \sF(\R, \K)$\\
+	• L'union de SEV est aussi un SEV (pas l'intersection)\\
+	• \underline{espace engendré :} Vect($e_1,\cdots, e_n) = \Big\{ \sum\limits_{i =1}^n \lambda_i e_i \, | \, \forall i\in \llbracket1;n\rrbracket , \lambda_i \in \K \Big\}$\\
+	Si $(e_1,\cdots,e_n)\in E$ alors Vect... est un SEV de $E$ et c'est le plus petit SEV de $E$ à contenir les $e_i$.\\
+	• $F + G =\{ f+g \, | \, f\in F$ et $g \in G \}$ \quad c'est un SEV de $E$ et le + petit à contenir $F$ et $G$\\
+	• \underline{somme directe :} $F\oplus G \Da F\cap G =\{ 0_E\}$\\
+	• $F$ et $G$ supplémentaires de $E$ ssi $E = F\oplus G$\\
+	• $(e_1, \cdots, e_n)$ est libre ssi $\forall (\lambda_1,\cdots , \lambda_n) \in \K^n$ , $\sum_{i = 1}^n \lambda_i e_i = 0_E \Ra \forall i\in \llbracket 1;n \rrbracket, \, \lambda_i = 0$\\
+	• $(e_1,\cdots , e_n)$ est liée ssi $\exists i \in \llbracket 1;n \rrbracket , \, e_i\in$ vect$(e_1,\cdots , e_{i-1}, e_{i+1}, \cdots , e_n)$\\
+	• $\sF = (P_0,\cdots , P_n)$ est échelonnée ssi $0\leq d^\circ \text{P}_0 < \cdots < d^\circ \text{P}_n$ et si échellonnée alors libre.\\
+	• $(e_1,\cdots , e_n)$ génératrice de $E \Da E$ = Vect$(e_1,\cdots ,e_n)$\\
+	• base = libre + génératrice\\
+	\qquad $(1,X, \cdots, X^n )$ base canonique de $\K_n[X]$\\
+	\qquad $(E_{i,j} )_{\begin{subarray}{l}1\leq i \leq n\\ 1\leq j \leq p \end{subarray}}$ \, base canonique de $\sM_{n,p}(\K)$\\
+	\qquad $(e_i)_{1\leq i \leq n}$ où $e_i=(0, \cdots , 1, \cdots , 0)$ est la base canonique de $\K^n$\\
+	
+	\text{ }\\
+	• $\sB$ une base de $F$ ($n$ éléments), $\sB'$ une base de $G$ ($p$ éléments), si $E = F\oplus G$\\
+	\ alors $\mB'' = \mB \cup \mB'$ est une base de $E$ (dite adaptée à la décomposition de $E = F\oplus G$)\\
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Espaces Vectoriels de dimension finie}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	• $E$ de dimension finie si il y a une partie finie et génératrice\\
+	• \underline{théo base extraite :} $\sG$ génératrice de $E$, alors$\exists \sB$  base de $E$ tq $\sB \subset \sG \ \Ra E$ de dim finie admet une base\\
+	• \underline{thé base incomplète :} $\sL$ libre de E, alors $\exists \sB$ base de $E$ tq $\sL \subset \sB$\\
+	• Comme toute les bases ont le même card, alors on dit que dim($E) = |\sB|$\\
+	• dim($E) = n$ et $|\sF| = n$ alors $\sF$ base de $E \Da \sF$ génératrice $\Da \sF$ libre et $|\sL| \leq |\sB| \leq \sG$.\\
+	• $F$ un SEV de $E$, dim($F) \leq$ dim($E$) et $E=F \Da$ dim($E) =$ dim($F$)\\
+	• En dim finie, existence des supplémentaires\\
+	• \underline{formule de Grassmann :} dim($F+G) =$ dim($F$) $+$ dim($G) - $dim($F\cap G)$\\
+	• $\sF$ une famille, rg($\sF) = $dim(Vect($\sF$))\\
+	• dim $E = n$ et $|\sF| = p$ alors : 
+	\quad \begin{itemize}
+			\item rg($\sF) \leq$ min($n,p$)
+			\item $\sF$ génératrice $\Da$ rg($\sF$) = $n$
+			\item $\sF$ libre $\Da$ rg($\sF) = p$
+		\end{itemize}
+	• dim(E$\times$F) = dim($F) + $dim($E$)\\
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Dérivation}
+
+\begin{flushleft}
+\begin{doublespace}
+	Soient $(a,b)\in \R^2$ tq $a<b$ et soit $f : \, [a ; b] \ra \R$\\
+	• \underline{théorème de Rolle :} si $f$ continue sur $[a , b]$, dérivable sur $]a ; b[$ et $f(a) = f(b)$ alors $\exists c\in ]a : b[$ tq $f'(c) = 0$\\
+	• \underline{TAF :} si $f$ continue sur $[a ; b]$ et dérivable sur $]a ; b[$ alors $\exists c\in ]a : b[$ tq $f'(c) = \frac{f(b) - f(a)}{b - a}$\\
+	• \underline{IAF :} si $f$ continue sur $[a ; b]$, dérivable sur $]a ; b[$ et $\exists M \in \R \, \forall x\in ]a ; b[ \ |f'(x)|\leq M$ alors $f$ est $M$-lipschitzienne\.\
+	\text{ }\\
+	\underline{formule de Leibniz :} $k\in\N$, $(f,g)\in \sC^k(I,\R)^2$ alors $fg\in \sC^k(I,\R)$ et $(fg)^{(k)} = \sum_{i = 0}^k \binom{i}{k} f^{(i)} g^{(k - i)}$\\
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Applications Linéaires}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	$f$ endomorphisme de $E \, \Da f\in \sL(E,E) = \sL(E)$\\
+	$f$ forme linéaire sur $E \, \Da f\in \sL(E,\K) = E^*$\\
+	$f$ un isomorphisme de $E$ dans $F \, \Da f\in\sL(E,F)$ et $f$ bijective\\
+	$f$ automorphisme de $E \, \Da f$ endomorphisme et isomorphisme donc $f\in \sG\sL(E)$, groupe linéaire\\
+
+	\text{ }\\
+	Si $f\in\sL(E)$ et $n\in\N , f^n = \underset{\text{n fois}}{\underbracket[0.5pt]{f\circ \cdots \circ f}} \in\sL(E)$\\
+	• $u\in\sL(E,F)$, $A$ SEV de $E$ et $B$ de $F$, $u-A)$ SEV de $F$ et $u^{-1}(B)$ SEV de $E \Ra$ Ker($u) = u^{- 1} (\{0_F\})$ SEV de $E$ et Im$(u) = u(E)$ SEV de $F$\\
+	• $f\in\sL(E,F)$, $f$ surjective $\Da$ Im$(f)$ \ $f$ injective $\Da$ Ker$(f) = \{0_E\}$\\
+	
+	\text{ }\\
+	• Si $F\oplus G = E$, alors $\forall x\in E \, \exists ! (x_F,x_G)\in F\times G, x=x_F+x_G$\\
+	 et on a $p_F : \left\{\begin{array}{ll} E \ra E \\ x\mapsto x_F \end{array} \right.$ projection, sur $F$ parallèlement à $G$.\\
+	 
+	 \text{ }\\
+	 • $p_F\in\sL(E)$ et $p_F\circ p_F = p_F$ \ ; Ker$(p_F) = G$ et Im$(p_F) = F$ \ ; $p_F\circ p_G = 0_{\sL(E)}$\\
+	\qquad $\Ra p\in \sL(E)$ et $p\circ p = p \Da E =$ Ker$(p)\oplus$ Im$(p)$ et $p$ projection sur Im$(p)$\\
+	\text{ }\\
+	• Si $F\oplus G = E$, .... $s_F :  \left\{\begin{array}{ll} E \ra E \\ x\mapsto x_F-x_G \end{array} \right.$\\
+	\qquad • $s_F \in\sL(E)$ et $s_F\circ s_F = Id_E$ \ ; Ker$(s_F + Id_E) = G$ et Ker$(s_F - Id_E) = F$\\
+	• $s_F = 2 p_F - Id_E$ \ ; $s_F\circ s_G = - Id_E$\\
+	\text{ }\\
+	• $u\in\sL(E,F)$ injective et $\sL$ libre de $E \Ra u(\sL)$ libre de $F$\\
+	• $u\in\sL(E,F)$ et $(e_1,\cdots , e_n)$ génératrice de $E \Ra $ Im$(u) =$ Vect$(u(e_1),\cdots, u(e_n))$\\
+	\quad (et si $u$ surjective, $(u(e_1),\cdots,u(e_n))$ génératrice de $F$)\\
+	• $(e_1,\cdots,e_n)$ base de $E$ et $(f_1,\cdots,f_n)\in F^n \Ra$ unicité de $u\in\sL(E,F)$ tq $\forall i \llbracket 1,n\rrbracket , u(e_i) =f_i$.\\
+	• $u$ isomorphisme et $\mB$ base de $E \Da u(\mB)$ base de $F$\\
+	
+	\text{ }\\
+	• rg$(u) =$ dim(Im($u$)) \ $\sB$ base de $E \Ra$ rg($u) = $ rg$(u(\sB))$ et rg$(u) \leq$ min(dim $E$, dim $F$).\\
+	rg$(g\circ f) \leq$ min(rg($f$), rg($g$)) et = rg($f$) si $g$ isomorphisme, de même pour $f$.\\
+	
+	\text{ }\\
+	• \underline{Théorème du rang :} dim $E$ = dim(Ker($f$)) + dim(Im($f$))\\
+	• dim $E$ = dim $F \Ra f$ injective $\Da f$ surjective $\Da f$ biective.\\
+	
+	\text{ }\\
+	• $(a,b)\in\K^2 , b\ne 0 , E_{a,b} = \big\{ (u_n)\in\K^\N , \forall n\in\N u_{n+2} = a\, u_{n+1} + b\, u_n\big\}$\\
+	et $(E) : x^2 - ax - b =0$, on a :\\
+	 - $E_{a,b}$ est un $\K$-EV de dim 2\\
+     - $(E)$ a 2 solution $p\ne q \Ra \big( (p^n)_{n\in\N} , (q^n)_{n\in\N} \big)$ base de $E_{a,b}$\\
+     - $(E)$ a 1 solution double $p \Ra \big( (p^n)_{n\in\N} , (n p^n)_{n\in\N} \big)$ base de $E_{a,b}$\\
+    \text{}\\
+	• Si $\K = \R$ et $\Delta_{(E)} < 0 \, p=p \, e^{i\theta} \ p>0$ et $\theta\in\R$, on a :\\
+	\qquad \ $\forall n\in\N , u_n = p^n (\alpha \cos(n \theta) + \beta \sin(n \theta) )$ avec $\alpha = \Re(A) + \Re(B)$ et $\beta = \Im(A) - \Im(B)$ et $u_n = A \, p^n + B \, q^n$.\\
+	
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Matrice}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	$\sB = (e_1,\cdots, e_n)$ base de $E, \, \sC = (f_1,\cdots, f_p)$ base de $F$\\
+	$\sF = (u_1,\cdots , u_q) \in E^q$ et $f\in\sL(E,F) :$\\
+	$ \Mat_\sB (\sF) = \bordermatrix { & u_1 & \dots & u_j & \dots & u_q \cr e_1 & a_{1,1} & \dots & a_{1,j} & \dots & a_{1,q} \cr \vdots & \vdots &  &\vdots &  & \vdots \cr e_i & a_{i,1} & \dots & a_{i,j} & \dots & a_{i,q} \cr \vdots & \vdots &  &\vdots &  & \vdots \cr e_n & a_{n,1} & \dots & a_{n,j} & \dots & a_{n,q} \cr} \ \in \sM_{n,q}(\K)$\\
+	\text{ }\\
+	\text{ }\\
+	$ \Mat_{\sB ,\sC} (\sF) = \bordermatrix { & f(e_1) & \dots & f(e_j) & \dots & f(e_q) \cr f_1 & a_{1,1} & \dots & a_{1,j} & \dots & a_{1,q} \cr \vdots & \vdots &  &\vdots &  & \vdots \cr f_i & a_{i,1} & \dots & a_{i,j} & \dots & a_{i,q} \cr \vdots & \vdots &  &\vdots &  & \vdots \cr f_p & a_{n,1} & \dots & a_{n,j} & \dots & a_{n,q} \cr} \ \in \sM_{p,n}(\K)$\\
+	
+	\text{ }\\
+	• $\Mat_{\sC} (f(x)) = \Mat_{\sB,\sC}\, \Mat_\sB (x)$ \ ; $\Mat_\sB (\lambda\, \text{Id}_E) = \lambda I_n \; \lambda\in \K$\\
+	• $\underline{\text{Si }F\oplus G\text{ et }\sB\text{ base :}} \ \Mat_\sB (p_F) = \begin{pmatrix} I_r & 0_{r, n-r} \\ 0_{n - r, r} & 0_{n - r, n - r}\end{pmatrix} \text{ et } \Mat_\sB(s_F) = \begin{pmatrix} I_r & 0_{r, n-r} \\ 0_{n - r, r} & - I_{n - r}\end{pmatrix}$\\
+	
+	\text{ }\\
+	 $\left\{\begin{array}{ll} \sL(E,F) \ra \sM_{p,n}(\K) \\ f \mapsto \Mat_{\sB,\sC}(f) \end{array} \right.$ isomorphisme donc dim$(\sL(E,F)) =$ dim E $\times$ dim F\\
+	 \text{ }\\
+	 $\Mat_{\sB,\sD}(g\circ f) = \Mat_{\sC,\sD}(g) \times \Mat_{\sB,\sC}(f)$\\
+	• $\Mat_\sB (f^q) = \Mat_\sB(f)^q$ \ ; $f$ automorphisme $\Da \Mat_\sB(f)$ inversible et $\Mat_\sB(f^{- 1}) = \Mat_\sB(f)^{- 1}$\\
+	• $f_A : \, X \mapsto AX \in\sL(\sM_{n,1}(\K),\sM_{p, 1}(\K) )$ : appli linéaire canonique associé à $A$\\
+	
+	%------------------------------------------
+	
+	\text{ }\\
+	\underline{matrice de passage de $\sB$ à $\sB'$ :} $\text{P}_{\sB \ra \sB'} = \Mat_\sB(\sB')$ et $(\text{P}_{\sB \ra \sB'})^{- 1} = \text{P}_{\sB ' \ra \sB}$\\ 
+	$\Mat_\sB(x) =  \text{P}_{\sB \ra \sB'} \, \Mat_{\sB '}(x)$\\
+
+	\text{ }\\
+	$ A = Q A' P^{- 1}$ avec $f\in\sL(E,F)$, $A = \Mat_{\sB,\sC}(f), \, A' = Mat_{\sB',\sC '}(f), \, Q =  \text{P}_{\sC \ra \sC '}$ et $ P =  \text{P}_{\sB \ra \sB'}$ et si $f\in\sL(E), Q = P$ et on note $D = A'$, de plus $A^q = PD^q P^{- 1}$\\
+
+	\text{ }\\
+	Ker$(A) = \{ \text{X}\in \sM_{n,A}(\K) \, | \, \text{AX} = 0\}$ \ ; Im$(A) = \{ \text{AX} \, |\, \text{X}\in\sM_{n,1}(\K)\}$ \ ; rg$(A) =$ dim(Im$(A))$\\
+	$x\in \text{Ker}(f) \Da Mat_\sB(x)\in A$ \ ; $y\in $ Im($f) \Da Mat_\sC (y)\in $ Im($y)$ \ ; rg$(A) =$ rg($f$)\\
+	• rg$(A) =$ rg$(C_1,C_2, \dots,C_n)$ \ ; $n =$ rg$(A) + $dim(Ker($A$)) \ $n$, nombre de colonnes de $A$\\
+
+	\text{ }\\
+	$A\in\sM_{p,n}(\K)$ : rg$(A) \leq$ min($n,p$) \ ; rg($AB) \leq$ min(rg($A$), rg($B$))\\
+	Si $A\in\sM_n(\K)$ (ou $B\in \sM_n(\K))$, rg($AB$) = rg($B$) \ (ou rg($B$))\\
+	
+	\text{ }\\
+	$A\in\sM_{p,n}(\K)$ alors $\exists (P,Q)\in \sG\sL_n(\K)\times\sG\sL_p(\K)$, $A = Q \begin{pmatrix} I_r & 0_{r, n-r} \\ 0_{p - r, r} & 0_{p - r, n - r}\end{pmatrix} P^{- 1} \Da$ rg($A) = r$\\
+	rg($A^T) =$ rg($A$)\\
+	• $A\in \sM_n(\K)$, $A$ inversible $\Da$ rg($A) = n \Da$ Ker($A) = \{ 0_{n,1} \} \Da$ Im($A) = \sM_{n,1}(\K)$\\
+	\text{ }\\
+	$E_{a,b} \times E_{c,d} = \delta_{b,c} E_{a,d}$\\
+
+\end{doublespace}
+\end{flushleft}
+\newpage
+\section*{Déterminant}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	• det($I_n) = 1$ \ ; det multilinéaire (linéaire par rapport à chaque colonne)\\
+	Soit $M\in \sM_n(\R)$ et $N = M$ avec 2 colonnes échangées, on a : det$(M) = -$det($N$) (antisymétrie)\\
+	
+	\text{ }\\
+	• colonne de $A$ nulle $\Ra$ det($A) = 0$\\
+	2 colonnes de $A$ égales $\Ra$ det($A) = 0$\\
+	det($C_1,\dots,C_n) = \text{det}(C_1, \dots, C_i + \sum_{\begin{subarray}{l} j=1 \\ j \ne i \end{subarray}}^n \lambda_j C_j , \dots, C_n)$\\
+	det($\lambda A) = \lambda^n$ det($A$) \ ($A\in\sM_n(\K))$\\
+	
+	\text{ }\\
+	• T matrice triangulaire ($\in\sM_n(\K)) \Ra$ det(T)$ = \prod_{i = 1}^n t_{i,i}$\\
+	$(M,N)\in\sM_n(\K)^2 :$\\
+	- $M$ inversible $\Da$ det($M) \ne 0$ donc rg($M) < n \Da$ det($M) = 0$\\
+     - det($MN) = $ det($M$) det($N$)\\
+	- det$(M^{-1}) = \frac{1}{\text{det}(M)}$ \; (si $M$ inversible)\\
+	- det($M^T) =$ det($M$)\\
+	\text{ }\\
+	$\Delta_{i,j}$ (mineur d'indice $(i,j)$) : det de $M$ où on a enlevé la $i$-ème ligne et la $j$-ième colonne\\
+	\underline{Développement de det($M$) :}\\
+	\begin{itemize}
+		\item[-] suivant la $i$-ème ligne : det($M) = \sum\limits_{j = 1}^n (- 1)^{i +j} m_{i,j} \Delta_{i,j}$ \ ($m_{i,j}$ coeff de $M$)
+		\item[-]suivant la $j$-ième colonne : det($M) = \sum\limits_{i = 1}^n (- 1)^{i +j} m_{i,j} \Delta_{i,j}$ 
+	\end{itemize}
+	\text{}\\
+	• $\sF = (x_1, \dots, x_n),\, \text{det}_\sB(\sF) = \text{det}(Mat_\sB(\sF))$ \ ; $= 0 \Da \sF$ liée \ ; $\sF$ base de $E \Da \text{det}_\sB(\sF) \ne 0$\\	
+	• $f\in\sL(E),$ det($f) =$ det($Mat_\sB(f))$\ \danger indépendant de $\sB$ \ ; det$(f\circ g) =$ det$(f) \times$ det$(g)$\ ; $f$ bijective $\Da$ det$(f) \ne 0$ et donc det$(f^{- 1}) =$ det($f)^{- 1}$\\
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Probabilité}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	• \underline{univers ($\Omega$) :} ensemble des issues possibles\\
+	• \underline{éventualité ou issue :} tout $\omega$ tq $\omega\in\Omega$\\
+	• \underline{ événement :} partie de $\Omega$ \ ; se réalise si $\omega\in A$ (lévénement) \ ; $\theta$ : événement impossible\\
+	$\Omega$ : événement certain \ ; $\{\omega_i\}$ : événement élémentaire\\
+	\text{ }\\
+	$A$ et $B$ incompatibles $\Da A\cup B = \0$ \ ; $A$ implique $B$ si $A\subset B$\\
+	• $(A_1,\cdots,A_n)$ système complet d'événements (s.c.e) si :
+	\begin{itemize}
+		\item[-] $\forall (i,j) \ A_i \cup A_j = \0$ avec $i \ne j$
+		\item[-] $\Omega = \underset{i = 1}{\overset{n}{\bigcap}} A_i$
+	\end{itemize}
+
+	\text{ }\\
+	• $(\Omega , \sP(\Omega))$ : espace probabilisé \ ($\sP(\Omega)$ = ensemble des parties de $\Omega$)\\
+	\quad est dit finie si on a $(\Omega, \bP)$ avec $\Omega$ fini et $\bP$ une proba sur $\Omega$\\
+	
+	\text{ }\\
+	$\bP(\bar{A}) = 1 - \bP(A)$ \ ; $\bP(\0) = 0$ \ ; si $A \subset B$, $\bP(A) \leq \bP(B)$ et $\bP(B\backslash A) = \bP(B) - \bP(A)$ \ ; $\bP(A \cap B) = \bP(A) + \bP(B) - \bP(A\cup B)$\\
+	
+	\text{ }\\
+	• $ \bP(B) = \sum\limits_{i = 1}^n \bP(P \cap A_i)$ avec $(A_i)_{1\leq i \leq n}$ un s.c.e .\\
+	la somme de proba = 1 \ ; probra$\in [0, 1]$ \ ; $\bP(A) =\sum\limits_{\begin{subarray}{l} i\in \llbracket 1,n \rrbracket \\ \text{tq } \omega_i\in A \end{subarray}} \bP(\{\omega_i\})$\\
+	
+	\text{ }\\
+	\underline{Si équiprobabilité :} $\bP(A) = \frac{\text{Card}(A)}{\text{Card}(\Omega)}$\\
+	$\bP(A \, | \, B) = \bP_B(A) = \frac{\bP(A\,\cap\,B)}{\bP(B)}$ (proba conditionelle) donc $\bP(A \cap B) = \bP(B)\bP_B(A)$\\
+	• \underline{formule proba composés :} si $\bP \Big( \underset{i = 1}{\overset{n - 1}{\bigcap}} A_i \Big) \ne 0$, on a $\bP \Big( \underset{i = 1}{\overset{n - 1}{\bigcap}} A_i \Big) = \bP(A_1) \times \bP_{A_1}(A_2)\times \dots \times \bP_{A_1 \cap \dots \cap A_{n - 1}} (A_n)$ .\\
+	• \underline{formule proba totales :} si $(A_1,\dots, A_n)$ s.c.e et $\bP(A_i) > 0$, on a $\bP(B) = \sum\limits_{i = 1}^n \bP_{A_i}(B)\, \bP(A_i)$ .\\
+	• \underline{formule de Baye :} $(A_1,\dots, A_n)$ s.c.e, $\bP(A_i) \ne 0$ et $\bP(B)\ne 0$, $\bP(A_i \, | \, B) = \frac{\bP( B \, | \, A_i) \bP(A_i)}{\sum_{j = 1}^n \bP( B \, | \, A_j) \bP (A_j)}$ .\\
+	
+	\text{ }\\
+	• $A$ et $B$  indépendants si $\bP(A \cap B) = \bP(A)\bP(B)$.\\
+	• $(A_1,\cdots, A_n)$ mutuellement indé si $\forall I \subset \llbracket 1,n \rrbracket , I \ne \0$ on a $\bP\Big(\ \underset{i \in I}{\bigcap} A_i \Big) = \prod_{i\in I} \bP(A_i)$.\\
+
+\end{doublespace}
+\end{flushleft}
+
+\section*{Variables aléatoires réelles}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	\underline{variable aléatoire réelle :} tout X : $\left\{\begin{array}{ll} \Omega \ra \R \\ \omega \mapsto \text{X}(\omega) \end{array} \right.$\\
+	(X$\in B ) = \text{X}^{-1}(B)$ \ ; (X$ = x) = \text{X}^{- 1}(\{x\})$ \ ; (X$ < x) = \text{X}^{- 1} (] - \infty ; x])$\\
+	\text{ }\\
+	• X$(\Omega) = \{ x_1,\cdots, x_p\}$ alors (X$ = x_i)_{1\leq i \leq p}$ s.c.e et si $B\subset \R \ \bP(\text{X}\in B) = \sum_{x\in B} \bP(\text{X} = x)$.\\
+	• $f : \text{X} \ra \R$, Y$(\Omega) = \{ f(x_1),..., f(x_p)\}, \ \forall y\in \text{Y}(\Omega) \ \bP(\text{Y} = y) = \sum_{\begin{subarray}{l} \text{\quad \  \ } i = 1 \\ \text{ si } f(x_i) =y \end{subarray}}^p \bP(\text{X} = x_i) = \sum_{x\in f^{- 1}(\{y\})} \bP(\text{X} = x)$\\
+	• $\E(\text{X}) = \sum_{x\in \text{X}(\Omega)} x \, \bP(\text{X} = x)$ ; X centrée si $\E$(X) = 0 ; $\E$ linéaire ; $\E(\lambda) = \lambda$ \ ; si X $\leq$ Y, $\E$(X) $\leq \E$(Y).\\
+	$f : \text{X}(\Omega) \ra \R,$ Y = $f($X) donc $\E(\text{Y}) = \sum\limits_{x\in \text{X}(\Omega)} f(x) \, \bP(\text{X} = x)$.\\
+	
+	\text{ }\\
+	• \underline{inégalité de Markov :} $a>0$ et X positive alors $\bP$(X $\geq a) \leq \frac{\E(\text{X})}{a}$.\\
+	
+	\text{ }\\
+	• $\V$(X) = $\E \text{(X} - \E(\text{X}))$ et $\sigma(\text{X}) = \sqrt{\V(\text{X})}$\\
+	$(a,b)\in\R^2, \V(a\text{X} +  b) = a^2 \V($X) \ ; $\V$(X) = a $\Da \text{X} = \E($X) \\ \underline{Koenig - Huyengs :} $\V(\text{X} = \E(\text{X}^2) - \E(\text{X})^2$ \\
+	\underline{inégalité de Bienaymé - Tchebytchev :} $\varepsilon > 0$, $\bP(\, |\text{X} -\E(\text{X}) \, | \, \geq \varepsilon) \leq \frac{\V(\text{X})}{\varepsilon^2}$.\\
+	
+	\text{ }\\
+	• $(x,y)\in\text{X}(\Omega)\times \text{Y}(\Omega)$ si $\bP\big( (\text{X} = x) \cap (\text{Y} = y) \big) = \bP(\text{X} =x ) \bP (\text{Y} = y)$ alors X et Y indépendants.\\
+	X, Y indépendantes, $f$ : X$(\Omega) \ra \R$ et $g$ : Y($\Omega) \ra \R$ alors $f($X) et $g$(Y) indépendants.\\
+	\qquad $''  \quad \E$(XY)$ = \E$(X)$\E$(Y) et $\V($X + Y) = $\V$(X) + $\V$(Y).\\
+	\text{ }\\
+	• $(X_1,\dots, X_n)$ mutuellement indépendantes si $\forall (x_1,\cdots,x_n)\in \text{X}_1(\Omega)\times \dots \times \text{X}_n(\Omega)$ \ $\bP \Big( \underset{i = 1}{\overset{n}{\bigcap}} (\text{X}_i = x_i) \Big) = \prod_{ i = 1}^n \bP (\text{X}_i = x_i)$ \ OU si $A_i\in \sP(X_i(\Omega))$, $\bP \Big( \underset{i = 1}{\overset{n}{\bigcap}} (\text{X}\in A_i) \Big) = \prod_{ i = 1}^n \bP (\text{X}\in A_i)$\\
+	\text{ }\\
+	$(\text{X}_1,\dots,\text{X}_n)$ 2 à 2 indépendantes $\Ra\V \Big( \sum\limits_{i = 1}^n \text{X}_i  \Big)= \sum\limits_{i = 1}^n \V(\text{X}_i)$\\
+	
+	\text{ }\\
+	\underline{ loi conjointe :} (X,Y) : $\left\{\begin{array}{ll} \text{X}(\Omega)\times \text{Y}(\Omega) \ra [0; 1] \\ (x,y) \mapsto \bP \big( (\text{X} = x) \cap (\text{Y} = y) \big) \end{array} \right.$\\
+	$1^{\text{e}}$ loi marginale de (X,Y) la loi de X et la $2^{\text{nd}}$ celle de Y\\
+	Donc $\forall x\in \text{X}(\Omega) \ \ \bP(\text{X} = x) = \sum_{y\in \text{Y}(\Omega)} \bP \big( (\text{X} = x) \cap (\text{Y} = y) \big)$\\
+
+	\text{ }\\
+	\begin{table}[h!]
+	\centering
+	\resizebox{\columnwidth}{!}{
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	 Loi & Paramètre & X($\Omega$) & Loi de proba & $\E$(X) & $\V$(X) \\
+	 \hline
+	Quasi-certaine & $a\in\R$ & & $\bP (\text{X} = a) = 1$ & $a$ & $0$\\
+	\hline
+	Bernoulli & $p\in[0;1]$ & \{0,1\} & $\bP(\text{X} = 1) = p \ ,   \bP(\text{X} = 0) = 1-p $ & $p$ & $p\,(1-p)$\\
+	\hline
+	Binomiale & $(p,n)\in[0,1]\times\N^*$ &$\llbracket 0,n \rrbracket$  & $k\in\llbracket 0,n\rrbracket \, \bP(\text{X}=k) = \binom{k}{n}p^k\, (1-p)^{n-k}$ & $np$ & $np\,(1-p)$\\
+	\hline
+	Uniforme & $n$ &$\llbracket 1,n \rrbracket$ & $k\in\llbracket 0,n\rrbracket \, \bP(\text{X}=k) =\frac{1}{\text{Card}(\llbracket 0,n \rrbracket)}$ & $\frac{n+1}{2}$ & $\frac{n^2-1}{12}$\\
+	\hline
+	Géométrie & $p\in]0;1[$ &$ \N^*$& $k\in\N^*, \, \bP(\text{X} = k) = p\, (1-p)^{k-1}$ & $\frac{1}{p}$ & $\frac{1-p}{p^2}$\\
+	\hline
+	Poisson & $\lambda > 0$ &$ \N $& $k\in\N , \, \bP(\text{X} = k) = \frac{\lambda^k}{k!}\, e^{- k}$ & $\lambda$ & $\lambda$\\
+	\hline
+	\end{tabular}}
+	\end{table}
+\end{doublespace}
+\end{flushleft}
+
+\section*{Intégration}
+
+\begin{flushleft}
+\begin{doublespace}
+
+	\underline{inégalité triangulaire :}  $\Big| \int_a^b f(x) \, \dx \Big| \leq \int_a^b | f(x) | \dx$\\
+	• $f\in \sC^0 (I,\R),$ si $f$ positive sur $I$ et si $\exists x_0\in I$ tq $f(x_0)>0$ alors $\int_a^b f >0$\\
+	\qquad \quad $''$ \qquad et si $\int_a^b f = 0$ alors $f$ nulle sur $I$.\\
+	
+	• $\sigma = (\sigma_0,\cdots,\sigma_n)$ avec $\sigma_i = a + i\frac{b - a}{n}$, si $f\in \sC^0([a,b],\R)$, alors on a les sommes de Riemann : $\underset{n \ra +\infty}{\text{lim}} \frac{b-a}{n} \sum\limits_{i = 0}^{n-1} f(\sigma_i) = \underset{n \ra +			\infty}{\text{lim}} \frac{b-a}{n} \sum\limits_{i =1}^n f(\sigma_i) = \int_a^b f$ .\\
+	
+	\text{ }\\
+	\underline{IAF à $f : I\ra \C$ :} $f$ $\sC^1$ et $M$ tq $|f'|\leq M$ alors $\forall (x,y)\in[a,b]^2, |f(x) - f(y)| \leq M |x - y|$\\
+	\underline{formule de Taylor avec reste intégral :} $a\in I$ et $f\in \sC^{n+1}(I,\K)$ alors on a $\forall x\in I$ :\\
+	$f(x) = \sum\limits_{k = 0}^n \frac{f^{(k)} (a)}{k!} \, (x-a)^k + \int_a^x \frac{(x-t)^n}{n!} \, f^{(n+1)} (t) \dt$ .\\
+	\underline{inégalité de Taylor-Lagrange :} $f\in\sC^{n+1}(I,\R)$ et $M\in\R^+$ tq $\forall t\in I \,|f^{(n+1)}(t) | \leq M$ on a :\\
+	$\forall x\in I, \, \Big| f(x) - \sum\limits_{k=0}^n \frac{f^{(k)} (a)}{k!} \, (x-a)^k \Big| \leq M\frac{| x - a|^{n+1}}{(n+1)!}$ .\\
+
+\end{doublespace}
+\end{flushleft}
+
+\chapter*{PSI}
+
+\section*{Compléments d'algèbre linéaire}
+
+det$\displaystyle{\big(V(\alpha_1, \hdots, \alpha_n)\big) = \prod_{1 \leqslant i \,<\, j \leqslant n} (\alpha_j - \alpha_i) }$\\
+$E^* = \sL(E,\K)$\\
+•\, \underline{$H$ hyperplan :} $H$ SEV de E et dim$(H) = $dim$(E) - 1$\\
+\text{}\qquad \qquad \qquad \quad $ \Da \forall x_0 \in E\setminus H, E = \text{Vect}(x_0)\oplus H$\\
+\text{}\qquad \qquad \qquad \quad $\Da \exists\,\varphi \in E^*$ tel que Ker $\varphi = H$ et $\varphi$ non nul\\
+\text{}\\
+$\varphi, \psi \in E^*$, Ker $\varphi =$ Ker $\psi \, \Da \exists \lambda \in \K^*, \psi = \lambda\, \varphi$.\\
+
+\text{}\\
+• $A$ et $B$ semblables $\Da \, \exists P \in \sG\sL_n(\K), A = P B P^{-1} \ \La A$ et $B$ ont même trace, rang, déterminant et polynômes annulateurs\\
+tr $\in E^*$ non nulle ; tr(${}^tA) = $ tr($A$) ; tr$(AB) = $ tr($BA)$\\
+$\displaystyle{P(u) = \sum_{i = 0}^n a_i u^i \ \in \sL(E)}$ , leur ensemble est $\K[u]$ \quad $(PQ)(u) = P(u)\, \circ \,Q(u) = P(u)\, \circ \,Q(u)$\\
+$\forall u \in \sL(E)$, $E$ dim finie, $\exists P\in \K[X], P(u) = 0_E$ \quad $A$ et ${}^tA$ ont même poly annulateurs.\\
+
+\text{}\\
+• matrices par bloc : det$\begin{pmatrix} A & \rvline & B\; \\ \hline
+\;0_{n,m} & \rvline & C\; \end{pmatrix} = $ det$(A) \times$ det$(C)$ \ ; \ det$\displaystyle{(M) = \prod_i^n \text{det}(A_{i,i}) }$ si M triangulaire ou diagonale par blocs.\\
+\text{}\\
+dim$\Big(\,\displaystyle{\prod_{i =1}^n E_i \Big) = \sum_{i = 1}^n \text{dim}(E_i)}$\ , le produit est un EV.\\
+\begin{equation*}
+\begin{aligned}
+    \bigoplus_{i =1}^n E_i &\Da \forall (x_1, \dots, x_n)\in \prod_{i=1}^n E_i, \ \sum_{i =1}^n x_i = 0_E \Ra x_i = 0_{E_i}\\
+    &\Da \text{dim}\Big(\sum_{i=1}^n E_i \Big) = \sum_{i = 1}^n \text{dim}(E_i)\\
+    &\Da \sB \text{ base de } \sum_{i=1}^n E_i \text{ avec $\sB$ concaténation de bases des } E_i\\
+\end{aligned}
+\end{equation*}
+
+• $\displaystyle{\SN E_i = \text{Vect}(\sB) \text{ et dim} \Big(\, \SN E_i \Big) \leqslant \SN }$dim$(E_i)$ .\\
+• $\displaystyle{ E = \bigoplus_{i=1}^n E_i \Da \text{dim}(E) = \SN \text{dim}(E_i) \text{ ET }  \bigoplus_{i=1}^n E_i\text{ ET }E = \SN E_i }$
+( 2 des 3 à vérifier)\\
+$\displaystyle{\sB = \bigcup_{i=1}^n \sB_i}$ base adapté $E_i$\\
+$ (u,v) \in \sL(E)^2$ tel quel $u\circ v \Da v\circ u$ et $P\in\K[X]$, $E, \{0_E\}$, Im$(u)$, Ker$(u)$, Im$(v)$, Ker$(v)$, Im$(P(u))$, Ker$(P(u))$ stables par $u$\quad $F$ stable par $u \Da u(F)\subset F$.\\
+• $ E = \bigoplus_{i=1}^n \text{ et } \sB = \bigcup_{i=1}^n \sB_i$ alors, $\forall i \in \llbracket 1,n \rrbracket, E_i$ stable par $u \Da \Mat_\sB (u) =\text{diag}(A_1,\dots,A_n)\\ A_i\in \sM_{d_i}(\K)$ et $\Mat_{\sB_i}(u_{E_i}) = A_i$\,.\\
+\section*{Réduction}
+
+• $\lambda\in \K$ valeur prore si $\exists x\in E\setminus \{0_E\}, \, u(x) = \lambda x$.\\
+• $x \in E$ vecteur prore si $\exists \lambda \in \K, \, u(x) = \lambda x$ et $x\neq 0_E$.\\
+$Sp(u) =\{$ valeurs propres u\} \ $E_\lambda = \text{Ker}(u - \lambda Id_E) \ \ \chi_u = \text{det}(XId_E - u), \, \chi_u(u) = 0_E$\\
+\text{}\\
+$\chi_u \in \K[u]$ est unitaire et de degré dim $E$ et $\chi_u(X) = X^n - tr(u)X^{n-1} + \dots + (-1)^n \,$det$(u)$\\
+Si $A$ et $B$ semblables $\chi_A = \chi_B$ et $\chi_A = \chi_{A^T} \ Sp(u)$ est l'ensemble de ses racines\\
+$\displaystyle{\chi_u = \PN (X - x_i)} \; x_i\in \C$ alors det$\displaystyle{(u) = \PN x_i}\text{ et } \text{tr}(u) = \SN x_i$\\ 
+$\displaystyle{ \chi_u = \PN (X-\lambda_i)^{m_i} \text{ alors det}(u) = \PN \lambda_i^{m_i} \text{ et tr}(u) = \SN m_i \lambda_i}$\\
+\text{}\\
+$\displaystyle{\bigoplus_{\lambda \in Sp(u)} E_\lambda(u)} \quad A = \begin{pmatrix} B & (*) \\ 0 & C \end{pmatrix} \; B,C$ matrices carrées $\chi_A = \chi_B \cdot \chi_C$\\
+$F$ stable par $u$ alors $\chi_{u_F} | \chi_u$\\
+\text{}\\
+• $1 \leqslant \text{dim}(E_\lambda(u)) \leqslant m_\lambda \leqslant n$ \; ($m_\lambda = 1 \Ra \text{dim}(E_\lambda(u)) =1)$\\
+$u$ automorphisme $\Da 0 \notin Sp(u)$\\
+
+\begin{equation*}
+\begin{aligned}
+u \text{ diago } & \Da E = \bigoplus_{\lambda \in Sp(u)} E_\lambda(u)\\
+& \Da \text{dim } E = \sum_{\lambda\in Sp(u)} \text{dim}(E_\lambda(u))\\
+&\Da \text{ il existe une base de $E$ formée de vecteurs propres de $u$}\\
+& \Da \chi_u \text{ scindé ET } \forall \lambda \in Sp(u), \; \text{dim}(E_\lambda(u)) = m_\lambda\\
+&\Da \exists P\in\K[X] \text{ scindé à racines simples tel que } P(u) = 0_E\\
+&\Da \prod_{\lambda \in Sp(u)} (X-\lambda)\text{ annule } u\\
+&\La \chi_u \text{ scindé à racines simples}\\
+\end{aligned}
+\end{equation*}
+$A$ symétrique réelle $\Ra A$ diagonalisable.\\
+\text{}\\
+$P\in \K[X], \, P(u) = 0_{\sL(E)}$ alors les valeurs propres de $u$ sont racines de $P$.\\
+Si $F$ stable par $u$ et $u$ diago alors $u_F\in \sL(F)$ diago.\\
+Si $u$ trigo, alors les coefficients diagonaux de $\Mat_{\sB'}(u)$ sont ses valeurs propres comptées avec multiplicité ($\sB'$ base de trigo)\\
+$u$ trigonalisable $\Da \chi_u$ scindé.\\
+
+\section*{Séries}
+• si $\displaystyle{|q| < 1, \, \sum q^n\text{ CVG et }\sum_{n=0}^{+\infty} q^n = \frac{1}{1-q}\text{, sinon } \sum q^n}$ DVG grossièrement.\\
+• $\displaystyle{\sum u_n \text{ CVG } \Ra u_n\liminf 0}\text{ ; par contraposée, }u_n\centernot\ra 0 \Ra \sum u_n $ DVG grossièrement.\\
+$\displaystyle{\sum z_n}$ CVG ssi $Im(z_n)$ et $Re(z_n)$ CVG\\
+• $(u_n)_n$ CVG ssi $\displaystyle{\sum (u_{n+1} - u_n)}$ CVG\\
+\text{}\\
+• $\displaystyle{\sum u_n}$ une SATP, \;$\displaystyle{\sum u_n \text{ DVG }\Ra \sum_{k=0}^n  u_k \leqslant \sum_{k=0}^{+\infty} u_k \ ; \ \sum u_n \text{ DVG } \Ra \lim_{n \to +\infty}\, \sum_{k=0}^n u_k = +\infty}$\\
+$\displaystyle{\sum u_n\text{ CVG ssi } \Big(\sum_{k=0}^n\Big)_n}$ est majorée.\\
+\text{}\\
+• Soit $f \; \sC^0, \, \searrow$ et $\geqslant 0$ sur $[0, +\infty[$, $\displaystyle{\sum f(n) \text{ CVG ssi } \Big(\int_0^n f \Big)_n}$ CVG\\
+$\displaystyle{\sum \frac{1}{n^\alpha}}$ CVG ssi $\alpha > 1$ \qquad $\displaystyle{H_n = \sum_{k=1}^n \frac{1}{k}  \sim \ln{n}}$ .\\
+\text{}\\
+•$\displaystyle{\sum u_n\text{ et } \sum v_n}$ SATP, $0\leqslant u_n \leqslant v_n$ alors si $\displaystyle{\sum v_n \; \text{ CVG } \Ra \sum u_n}$ CVG et $\displaystyle{\sum_{n=0}^{+\infty} u_n \leqslant  \sum_{n=0}^{=\infty} v_n}$ + contraposée\\
+• CVA $\Ra$ CVG et $\displaystyle{\Big| \sum_{n=0}^{+\infty} u_n \Big| \leqslant \SI |u_n|}$ .\\
+\text{}\\
+• $\sum v_n$ SATP, si $u_n = \sO (v_n)$ ou $o(v_n)$ ou $\sim v_n$ alors $\sum u_n$ CVA.\\
+$\sum u_n$ et $\sum v_n$ SATP strictes telles que $u_n \underset{\infty}{\sim} v_n$ alors $\sum u_n$ et $\sum v_n$ ont même nature.\\
+\text{}\\
+$n! \sim \sqrt{2\pi n}\, \Big(\frac{n}{e}\Big)^n$\\
+\begin{equation*}
+\begin{aligned}
+\text{• }(u_n)_n &\text{ non nulle à partir d'un certain rang, si } \LI \Big|\frac{u_{n+1}}{u_n} \Big| = l\in\R\text{ alors :}\\
+& - l<1 \Ra \sum u_n \text{ CVA}\\
+& - l>1 \Ra \sum u_n \text{ DVG grossièrement}\\
+\end{aligned}
+\end{equation*}
+\newpage
+\text{}\\
+• \underline{série de Cauchy :} $\sum w_n$ avec $w_n = \sum_{k=0}^n u_k v_{n-k}$ (produit de Cauchy de $v_n$ et $u_n$)\\
+si $\sum u_n$ et $\sum v_n$ CVA alors $\sum w_n$ CVA et $\SI w_n = \Bigg(\SI u_n\Bigg) \, \Bigg( \SI v_n \Bigg)$\\
+\text{}\\
+si $((-1)^n u_n)_n$ est de signe constant, alors $(u_n)_n$ est alternée.\\ 
+\underline{CSSA :} $(u_n)_n$ alternée tq $(|u_n|)_n$ soit $\searrow$ et $\LI u_n = 0$ alors $\sum u_n$ CVG et $|R_n| \leqslant u_{n+1}$ et sont de même signe.\\
+si $\alpha > 0$, $\sum \frac{(-1)^n}{n^\alpha}$ CVG mais CVA ssi $\alpha \in ]0,1]$.\\
+\text{}\\
+Les résultats précédents restent vrais quelque soit le rang $n_0$ à partir duquel les conditions sont vérifiées.\\
+
+\section*{Espaces préhilbertiens et euclidiens}
+$N : E \to \R$ norme si :\\
+• $\forall x\in E,\, N(x)\geqslant 0$ \ (positivité)\\
+• $\forall (x,\lambda)\in E\times \K,\, N(\lambda x) = |\lambda| N(x)$ \ (homogénité)\\
+• $\forall x\in E,\, N(x) = 0 \Ra x=0_E$ \ (séparation)\\
+• $\forall (x,y)\in E^2,\, N(x+y)\leqslant N(x) + N(y)$ \ (inégalité triangulaire)\\
+\text{}\\
+si $<, >$ produit scalaire sur $E$ alors $x \mapsto \sqrt{<x, x>}$ norme associée sur $E$\\
+• pour $p\geqslant 1$, $x\mapsto || x ||_p = \Big( \SN |x_i|^p \Big)^{\frac{1}{p}}$ \; norme sur $\K^n$, idem sur $\K[X]$ et $\sM_{n,p}(\K)$\\
+• $x\mapsto || x ||_\infty = \max_{1\leqslant k \leqslant n} { |x_k|}$ norme sur $\K^n$, $\K[X]$ et $\sM_{n,p}(\K)$\\
+• $f \mapsto ||f||_p = \Big( \int_a^b |f|^p \Big)^{\frac{1}{p}}$ et $f \mapsto ||f||_\infty = \sup_{t\in[a,b]} |f(t)|$ norme sur $\sC^0([a,b],\K)$\\
+$\forall (x_1,\dots, x_p)\in E^p$, $|N(x_1) - N(x_2)| \leqslant N(x_1 - x_2)$ \; et \; $N\Big(\sum_{i=1}^p x_i \Big) \leqslant \sum_{i=1}^p N(x_i)$\\
+\underline{Inégalité de Bessel :} $(e_1,\dots, e_p)$ bon de $F$, $\forall x\in E, \, \sum_{i =1}^p |<e_i,x>|^2 \leqslant ||x||^2$ .\\
+\text{}\\
+• $d : (x,y) \mapsto N(x-y)$\\
+$d(x,y) \leqslant 0 \, ; \, d(x,y) = d(y,x) \, ; \, d(x,y)=0 \Da x=y \, ; \, d(x,z)\leqslant d(x,y) + d(y,z)$\\
+
+\text{}\\
+•$B_F(a,r) = \{x\in E \,|\, d(a,x)\leqslant r\} \; ; \; <$ pour $B(a,r)$ ; $ =$ pour $S(a,r)$\\
+\underline{boule unité :} $B_F(0_E,1)$ \; (ou $B(0_E,1)$)\\
+• $A$ convexe si $\forall(x,y,t)\in A^2\times [0,1], \, tx+(1-t)y \in A$  $(B$ et $B_F$ le sont mais pas $S$ si dim$(E) \geqslant 1$)\\
+\text{}\\
+• $A$ borné s $\exists M> 0, \, \forall x\in A, \; N(x)\leqslant M$.\\
+\text{}\\
+$(u_n)_n\in E^\N$ converge vers $l\in E$ si $N(u_n - l) \TI 0$ ; $l$ est unique et indépendante du choix de $N$ en dimension finie ; mêmes opérations que limites sur $\K^\N$.\\
+$(u_n)_n$ est bornée si $\exists M, \, \forall n\in \N \; N(u_n)\leqslant M$\\
+\text{}\\
+Toute suite convergente est bornée.\\
+\text{}\\
+$(u_n)_n$ converge vers $l$ alors, $\forall \varphi : N \to \N$ strictement $\nearrow$ , $(u_{\varphi(n)})_n$ converge vers $l$ (suite extraite)\\
+\text{}\\
+• $O$ ouvert si $\forall x\in O \, \exists r>0 , \; B(x,r)\subset O$ \qquad \qquad \qquad $O$ ouvert ssi $E\backslash O$ fermé\\
+$E$ ; $\emptyset$ ; $\bigcup_{i\in I} O_i$ si $I$ fini ou infini ; $\bigcap_{i =1}^n O_i$ ; $B(a,r) \; a\in E$ sont des ouverts.\\
+•\underline{intérieur de $A$ :} Int$(A) = \overset{o}{A} = \{ x\in E \; | \; \exists r>0 \, B(x,r)\subset A\}$\\
+• $F$ fermé si $E\backslash F$ un ouvert \qquad \qquad \qquad $\Ra$ on peut être ni ouvert ni fermé \,\warning\\
+$E$ ; $\emptyset$ ; les $B_F$ ; $\bigcup_{i=1}^n F_i$ ; $\bigcap_{i\in I} F_i$ $I$ fini ou infini sont des fermés.\\
+•\underline{adhérence :} $\overline{A} = \{ x\in E\, |\, \exists r>0 \, B(x,r) \cap A \neq \emptyset \}$\\
+\text{}\\
+\underline{caractérisation séquentielle de l'adhérence :} $\overline{A} = \{ x\in E \, | \, \exists (a_n)_n \in A^\N , \, a_n \TI x\}$\\
+\text{}\\
+\underline{caractérisation séquentielle des fermés :} Soit $A\subset E$ , $A$ fermé ssi $\forall (a_n)_n\in A^\N$ converge vers $l$, on a $l \in A$ .\\
+\text{}\\
+\underline{frontière :} Fr$(A) = \overline{A}\backslash \overset{o}{A}$.\\
+
+\section*{Continuité des fonctions vectorielles}
+$a\in \overline{A}, \, f(x)\xrightarrow[x\to a]{} l$ si $\forall \varepsilon>0 \ \; \exists \, \delta>0 , \, \forall x\in A \ \ ||x-a||_E\leqslant \delta \Ra ||f(x) - l||_F \leqslant \varepsilon$\\
+Si $E$ et $F$ sont de dim finie, c'est indépendant de la norme.\\
+Propriétés sur opérations de limites et défnition de continuité sont identiques au cas $E=F=\K$.\\
+\text{}\\
+\underline{caractérisation séquentielle de la continuité :}\\
+$f$ continue en $a \Da \forall(x_n)_n\in A^\N , \ x_n\TI a \Ra f(x_n)\TI f(a)$\\
+\text{}\\
+• $F$ de dim finie de base $(e_1,\dots,e_p), \; \forall x\in A \; \exists(f_1(x),\dots,f_p(x))\in\K^p, \ \ f(x) = \sum_{k=1}^p f_k(x) \, e_k$ et $\exists (l_1,\dots,l_p)\in\K^p, \ \ l = \sum_{k=1}^p l_k \, e_k $ .\\
+$f(x) \xrightarrow[x\to a\in\overline{A}]{} l$ ssi $\forall k \; f_k(x) \xrightarrow[x\to a]{} l_k$ \ (de même pour la continuité)\\
+\text{}\\
+\text{}\\
+• $E$ de dim finie, $K$ un compact de $E$ et $f\in\sC^0(K,\R)$ alors $f(K)$ est borné et $\exists (\alpha,\beta)\in K^2, \ \forall x\in K \; f(\alpha)\leqslant f(x) \leqslant f(\beta)$ .\\
+\text{}\\
+• Soit $f\in \sC^0(E,\R)$ , $f^{-1}(\{0\}), \; f^{-1}(\R)$ sont des fermés et $f^{-1}(\R_-^*)$ est un ouvert (image réciproque d'un fermé/ouvert par une fonction continue est un fermé/ouvert)\\
+
+\text{}\\
+\underline{$f\in\sL(E,F)$ (pas besoin de dim finie) :}\\
+$f\in \sC^0(E,F)$ ssi $f$ continue en $0_E$ ssi $\exists k>0, \; \forall x\in E \ \ ||f(x)||_F \leqslant k \, ||x||_E$ ssi $f$ lipschitzienne\\
+\text{}\\
+- si $E$ de dim finie et $f\in\sL(E,F)$ alors $f$ lipschitzienne (donc $C^0$ )\\
+\text{}\\
+$(p_1,\dots,p_n)\in\N^*, (x_1,\dots,x_n) \mapsto \PN x_i^{p_i}$ est monomiale (déf)\\
+$f : \K^n \to \K$ est polynomiale si combinaison lin de fonctions monomiales, $f$ est $\sC^0$\\
+\text{}\\
+• $f:E^p\to E$ multilinéaire, si $E$ de dim finie, $f$ est $\sC^0$. (det l'est)\\
+$\sG\sL_n(\K)$ ouvert\\
+
+\section*{Probabilités à support fini}
+
+\underline{schéma de Bernoulli :} $\Omega = \{0,1\}^n, \ X(\Omega) = \SN \omega_i , \ P(\{w\}) = p^{X(\omega)}(1-p)^{n-X(\omega)} \TI 0$ et $P(x =k) = \binom{n}{k} p^k (1-p)^{n-k}$ .\\
+au plus dénombrable = fini ou $\cong \N$ .\\
+$(A_i)_{i\in I}$ s.c.e si $\forall (i,j)\in I^2, i\neq j \Ra A_i\cap A_j = \emptyset$ et $\bigcup_{i\in I} A_i = \Omega$ .\\
+\underline{tribu ou $\sigma$-algèbre :} tout $A\in \sP(\Omega)$ tq $\Omega\in A$, $\forall B\in A, \overline{B}\in A$ et $\forall(a_n)_n\in A^\N, \; \bigcup_{n=0}^{+\infty} a_n \in B$.\\
+$A = \{\emptyset, \Omega\}$ tribu grossière, $A= \sP(\Omega)$ tribu pleine, $ \sB = \{A, \overline{A}, \emptyset, \Omega\}$ tribu engendrée\\
+Si $\Omega$ au plus dénombrable, on prend $\sP(\Omega)$ comme tribu.\\
+\text{}\\
+• $P : A \to \{0,1\}$ probabilité si $P(\Omega) = 1$ et $\forall (A_n)_n\in A^\N$ incompatibles 2 à 2, $P(A_n)$ cvg et $P\Big(\bigcup_{n=0}^{+\infty} A_i \Big) = \SI P(A_n)$ , $\sigma$-additivité.\\
+$(p_n)_n\in\R^\N$ probabilité sur $\Omega$ au plus dénombrable ssi les $p_k>0$ et $\sum_n P(\{p_n\})$ cvg et $=1$.\\
+$\forall (A_i)_{1\leqslant k \leqslant n} \in \mA^n, \ P\Big(\bigcup_{k=1}^n A_k \Big) \leqslant \SN P(A_i)$.\\
+\newpage
+\text{}\\
+\underline{théorème de la limite monotone :}\\
+- $(A_n) \nearrow$ alors $P(A_n)$ cvg et $P\Big(\bigcup_{n=0}^{+\infty} A_n \Big) = \LI P(A_n)$.\\
+ - // \qquad $\searrow$ \qquad // \qquad // \qquad$\bigcap$\qquad // .\\
+\text{}\\
+\underline{formule des probas composées :} $P\Big(\bigcap_{i=1}^n A_i\Big) = P(A_k) \, P(_{A_1}(A_2) \dots P_{A_1 \cap \dots \cap A_n}(A_n)$ .\\
+\underline{formules des probabes totales :}$P(B) = \SI P(A_n)P_{A_n}(B) \  \ (A_i)$ un s.c.e\\
+\text{}\\
+$A, B$ indépendantes si $P(A\cap B) = P(A)P(B)$ et indé conditionnelle $C$ ssi $P_C(A\cap B) = P_C(A)P_C(B)$.\\
+$(A_n)_n$ famille d'événements indépendants si $\forall J$(fini) $\subset I, \ P\Big( \bigcap_{i\in J} A_i\Big) = \prod_{i\in J} P(A_i)$ .\\
+\text{}\\
+• $X: \Omega \to \R$ variable aléatoire discrète ssi $X(\Omega)$ au plus dénombrable et $\forall x\in X(\Omega), \; (X=x)\in \mA$ stable par max/min. \qquad \qquad $(X\in U)=X^{-1}(U)$\\
+\text{}\\
+\underline{loi de probabilité $X$ :} $P_X : B\in X(\Omega) \mapsto \mathbb{P}(X\in B)$ .\\
+\underline{fonction de répartion de $X$ :} $F_X : t\mapsto P(X\leqslant t) t\in\R$, $F_X \nearrow$, continue à droite, $\lim_{t\to-\infty} F_X(t) = 0, \; \lim_{t\to+\infty} F_X(t) =1, \; a<b \Ra P(a\leqslant X\leqslant b) = F_X(b) - F_X(a), \; P(x=a) = F_X(a) - \lim_{t\to a^-}F_X(t)$ , 2 VA ont même loi ssi même $F_X$\\
+loi uniforme, binomiale, géométrique, de Poisson : voir PCSI.\\
+$\mB\Big(n,\frac{\lambda}{n}\Big)$ cvg en $+\infty$ vers $\mP(\lambda)$\\
+\text{}\\
+$\mathbb{E}(X) = \SI x_n P(X=x_n)$ (doit CVA) et $E\mathbb{E}(X) = \sum_{\omega\in\Omega} X(\omega)P(\{\omega\})$\\
+\underline{théorème de transfert :} $E(\phi(X)) = \SI \phi(x_n) P(X=x_n)$ .\\
+\underline{moment d'ordre $k$ :} $E(X^k) = \SI x_n^k P(X=x_n)$ .\\
+$n$ VA : $P(X_1 =x_1,\dots, X_n = x_n) = P(X_1 =x_1) \times \dots \times P(X_n = x_n)$\\
+$(X+Y = z) = \bigcup_{x\in X(\Omega)} (X=x;Y=z-x) =  \bigcup_{y\in Y(\Omega)} (X=z-y;Y=y)$ \quad (stable par $P$)\\
+\text{}\\
+$E(XY) = E(X)E(Y)$ si $X,Y$ indé, $|E(XY)| \leqslant \sqrt{E^2(X)E^2(Y)}$ si $X,Y$ moments d'ordre 2 et $ V(X+Y) = V(X) + V(Y) + Cov(XY)$\\
+$Cov(X,Y) = E((X-E(X)(Y-E(Y)) \ \ X,Y$ non corrélés si $=0$ (symétrique, bilinéaire, défnie positive $\Ra$ PS)\\
+coefficient de corrélation linéaire : $\rho(X,Y)  = \frac{Cov(X,Y)}{\sqrt{V(X)V(Y)}}$ .\\
+
+\section*{Espaces préhilbertiens et euclidiens}
+\underline{produit scalaire :} symétrique, bilinéaire, défnie positive.\\
+\underline{usuel sur $\R^n$ :} $(x,y) \mapsto \SN x_i y_i$ \qquad \qquad \underline{sur $\R[X]$ :} $(P,Q) \mapsto \SI a_n b_b$ \\
+\underline{sur $\sC^0(I,\R)$ :} $(f,g) \mapsto \int_I fg$ \qquad \qquad \underline{sur $\C$ :} $(z,z') \mapsto Re(z\overline{z'})$\\
+\underline{sur $\mM_{n,p}(\R)$ :} $(A,B)\mapsto tr(AB^T) = \sum_{\substack{1\leqslant i \leqslant n \\ 1\leqslant j \leqslant p}} a_{i,j} b_{i,j}$\\
+\text{}\\
+$\|\text{ }\| : x\mapsto \sqrt{<x,x>}$ norme associée au produit scalaire.\\
+$\|x+y\|^2 = \|x\|^2+2<x,y>+\|y\|^2$  et  $\Big\| \SN x_i\Big\|^2 = \SI \|x_i\|^2 + 2 \sum_{1\leqslant i<j\leqslant n} <x_i,x_j>$\\
+\underline{Cauchy-Schwartz : } $<x,y>^2 \leqslant <x,x>\times <y,y>$ et $|<x,y>|\leqslant \|x\| \times \|y\|$ \ égalité ssi $(x,y)$ liée.\\
+\text{}\\
+$x$ et $y$ orthogonaux ssi $<x,y> =0$ \ \ $F\perp G$ ssi $\forall (f,g)\in F\times G  \; <f,g>=0$ \\ $F^\perp = \{x\in E \, | \, \forall f\in F, <x,f>=0\}$\\
+\underline{Thèoreme de Pythagore :} $(x_1,\dots,x_p)$ orthogonale finie $\Ra  \Big\| \sum_{i=1}^p x_i \Big\|^2 = \sum_{i=1}^p \| x_i\|^2$ .\\
+Si $\sF$ famille orthogonale finie sans le vecteur nul alors $\sF$ libre.\\
+$F^\perp$ SEV, $F\oplus F^\perp$ , $F\subset(F^\perp)^\perp$ , $F\subset G \Ra G^\perp \subset F^\perp$ , $F^\perp \cap G^\perp = (F+G)^\perp$ , $E^\perp = \{0_E\}$ , $\{0_E\}^\perp = E$\\
+$(x_1,\dots,x_p)$ orthonormale ssi $<x_i,x_j> = \delta_{i,j}$ .\\
+\text{}\\
+\underline{Gram-Schmidt :} $ \sB = (f_1,\dots,f_p)\\
+(g_1,\dots,g_p)$ bon tq $Vect(f_1,\dots,f_p) = Vect(g_1,\dots,g_p) \ \ g_j = \frac{\displaystyle f_j - \sum_{i=1}^{j-1} <f_i,g_i> g_i}{\|\, // \,\|}$\\
+\text{}\\
+$F$ SEV de dim finie, $E=F\oplus F^\perp \Ra p_F : x \mapsto \sum_{i=1}^p <x_i,g_i>g_i \\ (g_1,\dots,g_p)$ bon et projection // à $F^\perp$.\\
+$p_F(x)$ unique vecteur tel que $x-p_F(x)\in F^\perp$ et tel que $\forall i\in \llbracket 1,p\rrbracket < x -p_F(x), f_i> \; = 0 \\ ((f_i)$ base de E et dim finie)\\
+$d(x,F) = \| x - p_F(x) \| = \inf_{f\in F} \|x-f\|$ si $F$ de dim finie, $p_F$ est alors unique.\\
+\text{}\\
+• Si $E$ euclidien, $\exists$ une bon  ;  $\sB =(e_1,\dots,e_n)$ bon et $u\in\sL(E),\\
+\; x=\SN <x_i,e_i> e_i  \ <x,y> = \SN <x,e_i><y,e_i> = X^T Y$.\\
+$\Mat_\sB (u) = (<u(e_j), e_i> )_{1\leqslant i,j \leqslant n}$.\\
+dim $F^\perp = $ dim $E - \text{dim } F \Ra F = (F^\perp)^\perp$ et $F^\perp + G^\perp = (F\cap G)^\perp$ .\\
+$H = Vect(a)^\perp$ hyperplan, $a\neq 0_E$ \ $\forall x\in E \; d(x,H) = \frac{|<x,a>|}{\|a\|}$ .\\
+\text{}\\
+\section*{Intégrabilité}
+
+• $\sC^{pm}(I,\K), \left.f\right|_{]\sigma_i;\sigma_{i+1}[}$ bornée sur $I$, $\int_I f$ indépendant de $f(\sigma_i)$ \ $(\sigma_i)_{0\leqslant i \leqslant n}$ subdivision de $f$ sur $I$ .\\
+• $f\in \sC^{pm}(I,\K)$, si $f\geqslant0$ sur $I$ et $\int_I f =0$ alors $f$ nulle sur $I$ sauf en un nombre fini de points (les $\sigma_i)$.\\
+• $f\in\sC^{pm}([a,b[,\K)$ si $f(x)\xrightarrow[a\to b^-]{} l\in\K$ alors $\int_a^b f$ CVG.\\
+exp: $\int_0^{+\infty} e^{-at} \dt$ CVG ssi $a>0$\\
+Riemann : $\int_1^{+\infty} \frac{\dt}{t^\alpha}$ CVG ssi $\alpha>1$ vers $\frac{1}{\alpha -1}$ \; et $\int_0^1 \frac{\dt}{t^\alpha}$ CVG ssi $\alpha<1$ vers $\frac{1}{1-\alpha}$.\\
+\text{}\\
+$f\; \sC^0([a,b],\K), \, F$ primitive de $f$, alors $\int_a^b f$ cvg ssi $F$ a une limite en $b^-$.\\
+\underline{IPP :} $(f,g)\in\sC^1(]a,b[, \K)$ si $fg$ a des limites finies en $b^-$ et $a^+$, $\int_a^b fg'$ et $\int_a^b g'f$ ont même nature et IPP si cvg.\\
+\text{}\\
+Gamma : $\Gamma : x\mapsto \int_0^{+\infty} t^{x-1}e^{-t} \dt$, $\Gamma(x+1) = x\,\Gamma(x)$ et $\Gamma(n) = (n-1)! \ n\in\N^*$.\\
+\underline{Changement de variable :} $f$ cpmx, $\varphi\in \sC^1(]\alpha, \beta[,\K) \, \lim_\alpha \varphi = a$ et $\lim_\beta \varphi = b$ alors $\int_\alpha^\beta (f\circ \varphi) \varphi'$ et $\int_a^b f$ ont même nature.\\
+\text{}\\
+$f\in\sC^0([a,b[,\R^+) \geqslant 0$ et $F$ primitive, $\int_a^b f$ cvg si $F$ bornée sur $[a,b[$.\\
+$f,g$ cpmx $\geqslant 0$ et $f\leqslant g, \; \int_I g$ cvg $\Ra \int_I f$ cvg.\\
+\underline{comparaison série-intégrale :} $f\in\sC^{pm}(\R^+,\R^+) \searrow\,, \; \sum f(n)$ cvg ssi $\int_0^{+\infty}f$ cvg.\\
+\text{}\\
+$f$ cpmx \underline{intégrable} sur $I$ si $\int_I |f|$ cvg ; $f$ intégrable $\Ra \int_I f$ cvg et I.T. ; leur ensemble est un EV ($\sL^1$).\\
+$I=[a,b[, \, f,g$ cpmx et $g$ intégrable, $f\underset{b}{=} \sO(g), \sim g, o(g) \Ra f$ intégrable.\\
+$f,g\geqslant0$ et $f\underset{b}{\sim} g \Ra \int_I f$ et $\int_I g$ de même nature.\\
+\text{}\\
+$f$ cpmx de \underline{carré intégrable} si $\int_I|f|^2$ intégrable, EV stable par plus ($\sL^2$).\\
+$f,g$ carré intégrable, alors $fg$ intégrable (pas réciproque) ; Cauchy-Schwartz (= si positi liée).\\
+
+\section*{Séries de fonctions}
+• \underline{CVS :} si $\forall t\in I, f_n(t)\TI f$ \ (unicité limite ; équivalents interdits)\\
+conserve positivité et $\nearrow$ ou $\searrow$ mais PAS $\, \sC^0$ et $\int$.\\
+$\sum f_n$ CVS sur $I \Da \sum f_n(t)$ CVS $\forall t\in I$ alors $\Big(\SI f_n \Big)(t) = \SI f_n(t)$.\\
+$\sum f_n$ CVS $\Ra S= S_n + R_n$ et $R_n \overset{\text{CVS}}{\to} \Tilde{0}$.\\
+\text{}\\
+• \underline{CVU :} $f_n \overset{\text{CVU}}{\to} f$ si $\forall\varepsilon>0 \; \exists N\in \N,\, \forall n \in \N \; n\geqslant N \Ra \forall t\in I\; |f_n(t)-f(t)|\leqslant\varepsilon$ , $N$ indépendant de $t$.\\
+CVU $\Ra$ CVS, on cherche tout de même la limite simple en premier.\\
+$(f_n)\overset{\text{CVU}}{\to} f \Da \exists N\in\N, \, n\geqslant N \Ra f_n -f$ borné et $\| f_n -f\|_\infty \to 0$ (on peut chercher $(\alpha_n)$ tq $\alpha_n \to 0$ et $\|f_n-f\|_\infty \leqslant\alpha_n$)\\
+$\sum f_n$ CVU $\Da \sum f_n$ CVS et $R_n \overset{\text{CVU}}{\ra}\Tilde{0}$ \ pour la CVU de $R_n$ on peut : trouver $\alpha_n, |R_n(t)|\leqslant \alpha_n \; \forall t\in I$ OU $\|R_n\|_\infty \to 0$.\\
+En pratique on l'obtient pas : CVN OU $\|R_n\|_\infty \to 0$ par CSSA ou autre majoration.\\
+\text{}\\
+• \underline{CVN :} si $f_n$ sont bornées et $\sum \| f_n\|_\infty$ cvg. \ CVN $\Ra$ CVU $\Ra$ CVS.\\
+Pour montrer la CVN, il suffit d'avoir $(\alpha_n)$ tq $\forall t\in I, \; |f_n(t)|\leqslant \alpha_n$ et $\sum\alpha_n$ cvg.\\
+\text{}\\
+• Si $f_n\overset{\text{CVU}}{\to}f$ et les $f_n \; \sC^0$ alors $f \; \sC^0$ (de même avec CVU sur tout segment et $\sum f_n$).\\
+(CVU $\Ra$) CVU sur tout segment $\Ra$ CVS sur $I$.\\
+\underline{théorème de la double limite :} si $f_n\overset{\text{CVU}}{\to} f$ et chaque $f_n\underset{a}{\to} l_n$ alors $f(t)\underset{a}{\to} \LI l_n$, i.e. $\lim_{t\to a}\big(\LI f_n(t)\big) = \LI \big(\lim_{t\to a} f_n(t)\big)$ \; (de même pour $\sum f_n$, théorème de la limite terme à terme) $\Ra$ si $\neq$, on a pas la CVU.\\
+\text{}\\
+\underline{permutation limite-intégrale :} $f_n \underset{[a,b]}{\overset{\text{CVU}}{\to}} f$ et chaque $f_n \;\sC^0 \Ra f\; \sC^0$ et $\LI \int_a^b f_n = \int_a^b f$.\\
+(de même pour $\sum f_n$, intégration terme à terme sur un segment).\\
+\underline{théorème de convergence dominée :} les $f_n$ cpmx, $f_n \overset{\text{CVS}}{\to} f$ cpmx et $\exists \varphi$ intégrable tq $\forall n\in\N \, |f_n|\leqslant \varphi$ (indé de $n$) $\Ra$ les $f_n$ et $f$ intégrables et $\LI \int_I f_n = \int_I f$ \; (de même pour $\sum f_n$, théorème d'intégration terme à terme).\\
+\text{}\\
+\underline{théorème d'intervesion limite-dérivée :} les $f_n \; \sC^1, \; f_n$ CVS et $f_n'$ CVU sur tout segment $\Ra f \; \sC^1$ et $\LI f_n' = f'$ donc $\big(\LI f_n\big)' = \LI f_n'$ et $f_n$ CVU sur tout segment (de même pour $\sum f_n$, théorème dérivation terme à terme).\\
+• $f_n \; \sC^p$, les $f_n,\dots,f_n^{(p-1)}$ CVS, $f_n^{(p)}$ CVU sur tout segment alors $f\; \sC^p$ et $\forall k \in \llbracket 1,p \rrbracket, \; f^{(k)} = \LI f_n^{(k)}$ (de même pour $\sum f_n$).\\
+
+\section*{Séries entières}
+\underline{série entière :} $\sum a_n z^n \ (a_n)\in\C^\N$\\
+\underline{lemne d'Abel :} $z_0\in\C$ tq $(a_n z_0^n)$ bornée alors $\forall z\in\C, \; |z|\leqslant|z_0| \ \sum a_n z^n$ CVA.\\
+\underline{rayon de convergence :} $R = $sup$ \{r\geqslant0 \, |\, (a_n r^n)$ bornée $\}$\\
+- $|z|<R \Ra \sum a_n z^n$ CVA.\\
+- $|z|>R \Ra \sum a_n z^n$ dvg grossièrement.\\
+- $|z| = R$ : on ne sait rien !\\
+\text{}\\
+Une série entière CVN donc CVU sur tout $[-r;r],\; r<R$ mais pas CVN sur tout $D(0,R)$.\\
+• $\SI a_n x^n \ \sC^0$ sur $]-R;R[$ \qquad $\SI a_n z^n \ \sC^0$ sur $D(0,R)$.\\
+\text{}\\
+\underline{règle d'Alembert :} si $\Big|\frac{a_{n+1} z^{n+1}}{a_n z^n} \Big| \to l\in \R^+ \cup \{+\infty\}$ \quad  existence limite !\\
+- $l<1 \; : \; \sum a_n z^n$ CVA.\\
+- $l>1 \; : \; \sum a_n z^n$ dvg grossièrement.\\
+\text{}\\
+$a_n = \sO(b_n)$ ou $o(b_n)$ ou $|a_n|\leqslant |b_n| \Ra R_a\geqslant R_b \quad a_n\sim b_n \Ra R_a = R_b$.\\
+$\sum a_n z^n$ et $\sum n a_n z^n$ ont même RdC.\\
+RdC de $\sum (a_n + b_n)z^n \geqslant $min$(R_a,R_b)$ et $=$ si $R_a\neq R_b$.\\
+RdC de $\sum c_n z^n \geqslant $min$(R_a,R_b)$ et $\Big(\SI a_n z^n\Big)\Big(\SI b_n z^n\Big) = \SI c_n z^n$ produit de Cauchy.\\
+\text{}\\
+\underline{série entière primitive :} $\sum \frac{a_n}{n+1} x^{n+1}$ de même RdC que $\sum a_n x^n \; ; \; x\mapsto \SI \frac{a_n}{n+1} x^{n+1}$ primitive $=0$ en $0$ de $S$.\\
+\underline{série entière dérivée :} $\sum n a_n x^{n-1}$ de même RdC que série normale ; $x\mapsto \SI n a_n x^{n-1}$ dérivée continue de $S$.\\
+$S : x\mapsto \SI a_n x^n \ \sC^\infty$ sur $]-R,R[$ et $S^{(p)} : x\mapsto \sum_{n=p}^{+\infty} \frac{n!}{p!} a_n x^{n-p}$.\\
+$\forall n\in\N, a_n = \frac{S^{(n)}(0)}{n!}$ donc si $\sum a_n x^n$ et $\sum b_n x^n$ ont même somme au voisinage de 0 alors, $a_n=b_n$.\\
+\text{}\\
+• $f$ DSE si $\exists \, \sum a_n x^n$ tq $\forall x\in ]-r,r[ \; f(x) = \SI a_n x^n$ (donc cvg) $\Ra f \; \sC^0$ et $a_n = \frac{f^{(n)}(0)}{n!}$.\\
+\underline{série de Taylor :} $\sum \frac{f^{(n}(0)}{n!}x^n \ f \; \sC^\infty$, seule série associée à $f$ et $f\notin\sC^\infty \Ra f$ non DSE.\\
+$\{ f$ DSE $\}$ est un EV ; $f$ DSE $\Ra \bar{f}$, les $f^{(k)}$, Re$(f)$, Im$(f)$ le sont.\\
+$f$ DSE alors ses primitives sont $F:x\mapsto F(0) + \SI \frac{a_n}{n+1} x^{n+1}$.\\
+$(1+x)^\alpha = 1 + \sum_{n=1}^{+\infty} \frac{\alpha \dots (\alpha-n+1)}{n!} x^n \; \alpha\in\R$ et $R=1$.\\
+
+\section*{Intégrales à paramètres}
+
+$g : x\mapsto \int_J f$, \ $g:I\to \K$ et $f:(x,t)\in I\times J \ I,J\subset \R$ intervalles non vides.\/
+• \underline{théorème de continuité :} $t\mapsto f(x,t)$ cpmx sur $J, \, x\mapsto f(x,t) \, \sC^0$ sur $I, \; \exists \varphi$ cpmx et intégrable sur $J$, $\forall (x,t)\in I\times J \; |f(x,t)|\leqslant \varphi(t)$ (domination globale) OU pour $x$ dans un segment de $I$ (domination locale) $\Ra g$ définie et $\sC^0$ sur $I$.\\
+\text{}\\
+\underline{limites de $g$ :} si $a$ extrémité de $I$ dans $\lim_{x\to a} g(x)$ on peut remplacer $x\to a$ par $x_n\TI a$.\\
+Si on a utilisé la domination locale, il faut raisonner par comparaison de limite.\\
+\underline{théorème de dérivation d'ordre $p$ :} $(x,t) \mapsto \frac{\partial^i f}{\partial x^i} \; i\in\llbracket 1;p\rrbracket, \; \forall t\in J \, x\mapsto \frac{\partial^p f}{\partial x^p}(x,t) \, \sC^0$ sur $I$, $\forall k\in\llbracket 0,p-1\rrbracket \ \forall x\in I \ t\mapsto \frac{\partial^k f}{\partial x^k}(x,t)$ cpmx et intégrable sur $J$, domination globale ou locale sur $\frac{\partial^p f}{\partial x^p} \Ra g \ \sC^p$ et $\forall k\in \llbracket 0,p\rrbracket, \ g^{(k)} : x\mapsto \int_J \frac{\partial^k f}{\partial x^k}$ .\\
+
+\section*{Isométries vectorielles}
+\underline{isométrie vectorielle :} $u\in\sL(E), \ \forall x\in E \; \|u(x)\|= \|x\|$ ; $Sp(u)\subset\{-1;1\}$ ; c'est donc un automorphisme. \qquad ($\Da$ endo orthogonal, conserve PS)\\
+$(O(E),\circ)$ groupe orthogonal.\\
+$u$ isométrie vectorielle $\Da \sB$ bon, $u(\sB)$ bon $\forall \sB$ bon $\Da \exists \sB$ bon, $u(\sB)$ bon.\\
+\text{}\\
+• $A\in \sM_n(\R)$ orthogonale si l'endo cannoniquement associé à $A$ est une isométrie vectorielle.\\
+$A$ orthogonale $\Da {}^tAA=I_n \Da A{}^tA=I_n \Da A$ inversible et $A^{-1} ={}^tA \Da (C_1,\dots,C_n)$ bon de $\R^n \Da (L_1,\dots,L_n)$ bon de $\R^n$.\\
+$\sB$ bon, $\sB'$ bon ssi $\Mat_\sB(\sB')$ orthogonale et si oui $\Mat_{\sB'}(\sB) = {}^tP$.\\
+$\Ra$ si $\sB, \sB'$ bon et $u\in\sL(E), \, A'={}^tPAP, \; A$ et $A'$ orthogonalement semblables.\\
+\text{}\\
+$(O_n(\R),\times)$ sous-groupe de $\sG\sL_n(\R),\times)$ \qquad (on a que $O_n(\R)$ compact)\\
+$A\in O_n(\R)$ alors det$A = \pm 1 \ (\La$ faux !!)\\
+$(SO_n(\R), \times)$ groupe spécial orthogonal, sous groupe de $(\sG\sL_n(\R),\times)$, ensemble des matrices de $O_n((\R)$ de det$>0$.\\
+\underline{réflexion :} symétrie orthogonale par rapport à un hyperplan \ ($\in O_n^-(\R))$.\\
+\text{}\\
+$E$ euclidien, $\sB$ et $\sB'$ bon alors $\text{det}_\sB(\sB') = \pm 1$, $\sB'$ direct si +, indirecte si $-$ .\\
+$\text{det}_\sB (x_1,\dots,x_n)$ indépendant de $\sB$ avec $\sB$ bon directe et $n=$ dim $E$.\\
+\underline{produit mixte :} $\text{det}_\sB(x_1,\dots,x_n)$ ou $[x_1,\dots,x_n]$.\\
+\text{}\\
+- \underline{$\R^3$ :}\\
+$\exists! w\in E, \ \forall x\in E, \ [u,v,x]=<w,x>$, $w$ est le produit vectoriel $u\land v$.\\
+$\land$ est bilinéaire, antisymétrique ; $<u\land v,u> = <u\land v,x>=0$ ; $(u,v)$ libre ssi $u\land v \neq 0$ ; $i,j,k)$ bon directe $\Ra i\land j =k$.\\
+\text{}\\
+\text{}\\
+- \underline{$E$ de dim 2 :}\\
+\underline{isométrie directe :} $SO_2(\R) = \Big\{ R(\theta) = \begin{pmatrix} \cos \theta & -\sin \theta \\
+\sin \theta & \cos \theta\end{pmatrix} \; | \; \theta\in [0,2\pi[ \Big\} \\ R(\theta)\times R(\theta') = R(\theta + \theta') = R(\theta')\times R(\theta)$.\\
+\underline{isométrie indirecte :} $ O_2^-(\R) = \Big\{ S(\theta) = \begin{pmatrix} \cos \theta & \sin \theta \\
+\sin \theta & -\cos \theta\end{pmatrix} \ S(\theta)^2 = I_2 \ \Ra O_2(R)\backslash SO_2(\R) = O_2^-(\R)$.\\
+\text{}\\
+\text{}\\
+- \underline{$E$ de dim 3 :}\\
+$u\in O_2(\R), \; \exists$ bon tq $u$ diagonale par bloc : $\underset{\text{isométrie direct, } E_1(u)}{\begin{pmatrix} 1 &\rvline & 0 & 0\\\hline 0 &\rvline& \cos \theta & -\sin \theta \\ 0 &\rvline &\sin \theta & \cos \theta\end{pmatrix}}$ ou $\underset{\text{// indirect, }E_{-1}(u)}{\begin{pmatrix} 1 &\rvline & 0 & 0\\\hline 0 &\rvline& \cos \theta & -\sin \theta \\ 0 &\rvline &\sin \theta & \cos \theta\end{pmatrix}}$, rotations d'axe Vect$(u)$ et angle $\pm\theta$, $\text{Rot}_{u, \pm\theta}$.\\
+\text{}\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+     $Sp_\R(u)$ & Sous-espace propre & nature de $u$ & det$(u)$ \\\hline
+     $\{1\}$ & $E_1 =E$ & $Id_E \ (\theta \cong 0[2\pi])$ & $1$\\\hline
+     $\{-1\}$ & $E_{-1}=E$ & $-Id_E \ (\theta \cong \pi[2\pi])$ & $1$\\\hline
+     $\{-1,1\}$ & $E_{-1}, \; E_1$ droites orthogonales & symétrie orthogonale par rapport à $E_1$ & $-1$\\\hline
+\end{tabular} \ \underline{dim 2}\\
+\text{}\\
+1) Calcul du det \quad 2) det$=1$ (rotation), $\text{tr}=0$ / $\text{det}=-1$ (symétrie $\perp$), $E_1(A)$ axe de symétrie.\\
+\text{}\\
+\text{}\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+    $Sp_\R(u)$ & Sous-espace propre & nature de $u$ & det$(u)$ \\\hline
+    ${-1}$ ou $\{1\}$ & $E_{-1}=E$ ou $E_1=E$ & $Id_E$ ou $-Id_E$ & 1 ou -1\\\hline
+    $\{1\}$ & $E_1$ droite & rotation d'axe $E_1$ & 1\\\hline
+    $\{-1\}$ & $E_{-1}$ droite & rotation d'axe $E_{-1}\, \circ$ réflexion selon $E_{-1}^\perp$ & -1\\\hline
+    $\{-1,1\}$ & $E_{-1}$ droite et $E_1 = E_{-1}^\perp$ & réflexion selon $E_1$ & -1\\\hline
+    $\{-1,1\}$ & $E_{1}$ droite et $E_{-1} = E_1^\perp$ & demi-tour d'axe $E_1$ (réflexion) & -1\\\hline
+\end{tabular} \ \underline{dim 3}\\
+\text{}\\
+\text{}\\
+1) Calcul du det \quad 2) Si $A$ symétrique, c'est un demi-tour (symétrie orthogonale), $E_1(A)$ donne les invariances. Si rotation, $\text{tr}=\pm\theta$, le produit mixte donne le signe de $\theta$.\\
+\text{}\\
+• \underline{endomorphisme symétrique :} $\forall (x,y)\in E^2,<u(x),y>=<x,u(y)>$, donc $u\in S(E)$ ; $S(E)$ SEV de $\sL(E)$ de dim $\frac{n(n+1)}{2}$.\\
+$u\in S(E) \Ra Im(u) = \big(Ker(u)\big)^\perp$.\\
+$u\in\sL(E)$ et $\sB$ bon, $u\in S(E)$ ssi $\Mat_\sB(u)$ symétrique.\\
+• \underline{théorème spectrale :} tout $u\in S(E)$, $E$ euclidien admet une bon de vecteurs propres.\\
+OU toute matrice symétrqiue réelle est diagonalisable dans une bon et $A=PD{}^tP$.\\
+\text{}\\
+$\forall M =\begin{psmallmatrix} a&&(b)\\ &\ddots&\\  (b)&&a\end{psmallmatrix}$, on trouve $c$ tq $M-cI_n = \big((b)\big)$, puis Ker$(M-cI_n) = $Ker$\big((b)\big) = n-1$ (théo rang) $\Ra$ tout les $\Vec{\text{vp}}$ avec multiplicité via $\text{tr} = \sum_{\lambda\in Sp(M)} \lambda$.\\
+
+\section*{Variable aléatoire discrète}
+\underline{loi de $X$ :} $P_X : U\mapsto P(x\in U)$ \qquad complétement déterminée par $\big(P(X=x)\big)_{x\in X(\Omega)}$.\\
+$X$ positive si $P(X\geqslant0) =1$\\
+\underline{fonction de répartition : } $F_X : x\in\R \mapsto P(X\leqslant x)$ \quad $\forall n\in \N^*\; P(X=n)=F_X(n)-F_X(n-1)$\\
+\underline{loi géométrique :} répétition infini de Bernoulli + temps d'attente ; seule loi sans mémoire i.e. $\forall (n,k)\in \N^2, \; P(X\geqslant n+k \;|\; X> n) = P(X>k)$\\
+\text{}\\
+Poisson = loi binomiale, approximation valide ssi $p<<1$.\\
+$X$ VAD  $\Ra f(X)$ VAD \quad $Z=(X,Y)$ vecteur aléatoire discret, $Z(\Omega)\subset X(\Omega)\times Y(\Omega)$\\
+\underline{loi conjointe :} $P(X=x,Y=y) = P(\{X=x\}\cap \{Y=y\}) \quad \ra$ lois marginales (pas réciproque).\\
+\underline{lois marginales :} $P(X=x)=\sum_{y\in Y(\Omega)} P(X=x,Y=y)$ \ même pour $Y$.\\
+L'ensemble des VAD est un $\R$-EV.\\
+$X_i$ mutuellement indépendantes si $\forall (x_i)\in \prod_i X_i(\Omega)$ les $(X_i=x_i)$ sont indé $\Ra$ loi de $(X_1,\dots,X_n)$ et la loi produit des $X_i$.\\
+\underline{lemne des coalitions généralisé :} $(X_i)_{1\leqslant i\leqslant n}$ mutuellement indé, $q\in \llbracket 1,n-1\rrbracket$ alors $f(X_1,\dots,X_q)$ et $g(X_{q+1},\dots,X_n)$ indépendantes.\\
+$X$ admet une espérance ssi $\sum P(x\geqslant n)$ cvg.\\
+\underline{formule de transfert :} $X$ à valeurs dnas $\{x_n \, |\, n\in\N\}$ dénombrable, $x_n$ 2 à 2 distincts, $f:X(\Omega)\to \R$ alors $f(X)$ d'espérance finie ssi $\sum f(x_n) P(X=x_n)$ CVA et donc $E(f(X)) = \SI f(x_n)P(X=x_n)$.\\
+\text{}\\
+L'éspérance conserve l'ordre, est linéaire ; $P(X\geqslant 0) =1) \Ra X$ espérance finie et $E(X)\geqslant 0$ ; $P(X=a) =1 \Ra E(X)=a$.\\
+$X,Y$ indé $\Ra E(XY)=E(X)E(Y)$ réciproque fausse. $X^2$ admet une espérance $\Ra X$ admet une espérance.\\
+$\mathbb{V}(X)=E(X^2)-E(X)^2 = E\big((X-E(X))^2\big)\geqslant 0 \ \mathbb{V}(aX) = a^2 \mathbb{V}(X)$ et $\mathbb{V}(X+b)=\mathbb{V}(X) \\ \sigma = \sqrt{\mathbb{V}(X)}$\\
+• \underline{inégalité de Markov :} $X$ positive, $\forall a\in\R_+^* \; P(X\geqslant a)\leqslant \frac{E(X)}{a}$.\\
+• \underline{inégalité de Bienaymé-Tchebytchev :} $\forall \varepsilon>0, \; P(|X-E(X)|\geqslant \varepsilon) \leqslant \frac{\mathbb{V}(X)}{\varepsilon^2}$.\newpage
+\text{}\\
+\underline{Cauchy-Schwartz :} $X,Y$ sur un même espace, $E(Y)^2\leqslant E(X^2)E(Y^2)$ \ $=\;$ si $\exists (\alpha,\beta)\R^2\backslash\{0,0\}, \; P(\alpha X+\beta Y =0) = 1$.\\
+\text{}\\
+$Cov(X,Y) = E\big((X-E(X))(Y-E(y))\big) = E(XY) - E(X°E(Y) \quad =0$ si $X,Y$ indépendantes (réciproque faux)\\
+$\mathbb{V}(X_1,\dots,X_n) = \SN \mathbb{V}(X_i) + \SN \sum_{\substack{j=1\\i\neq j}}^n Cov(X_i,X_j)$.\\
+\text{}\\
+\underline{fonction génératrice :} $X$ à valeurs dans $\N$, $G_X(t) = \SI t^X P(X=n) \ =E(t^X)$.\\
+de RdC $\geqslant 1, \; \forall t\in [-1,1] \; G_X(t)\leqslant 1$ et $G_X(t) =1$, $\sC^0$ sur $[-1,1]$ et $\sC^\infty$ sur $]-1,1[$ au moins ; polynôme si $X(\Omega)$ fini.\\
+$n\in \N \; P(X=n) = \frac{G_X^{(n)}(0)}{n!}$ ; $E(X) = G_X'(1)$ et $\mathbb{V}(X) = G_X''(1) + G_X'(1)-G_X'(1)^2$\\
+$X,Y$ indé \ $\forall t\in [-1,1]\; G_{X+Y}(t) = G_X(t)\, G_Y(t)$\\
+\underline{loi faible des grands nombres :} $(X_n)_{n\in\N^*}$ indés, de même loi, $X_n^2$ admet une espérance, $\sigma=\sigma(X_n)=\sigma(X_1),\; m=E(X_1)$ et $S_n = \SN X_i \Ra P\Big(\Big| \frac{1}{n}S_n -n\Big| \geqslant\varepsilon\Big) \leqslant \frac{\sigma^2}{n\varepsilon^2}$.\\
+\text{}\\
+\text{}\\
+\text{}\\
+\underline{Méthode :} regarder si support fini, si oui et exp type O/N : Bernoulli/Binomiale.\\
+Préciser $X(\Omega)$ à chaque fois.\\
+Pour $E(X)$, prouver la CVa puis calculer par $S_n$ !!\\
+$\frac{k^2}{(k+1)!} = \frac{1}{(k-1)!} - \frac{1}{k} +\frac{1}{(k+1)!}$ \quad !\\
+Toujours se ramener à $X_1$ quand $n$ VAD de même loi !!\\
+
+\section*{Systèmes d'équations différentielles linéaires}
+On trouve les coeffs des $y_p$ du $2^\text{nd}$ ordre en remettant $y_p$ dans $(E)$.\\
+Structure d'EV, $S_H$ SEV de $\sC^1(I,\K^n)$ de dim $n$.\\
+\text{}\\
+$X' =AX+B, \; B$ simple ou nul et $A$ constante et diago/trigo.\\
+On trouve $Sp(A)$ puis les $E_{\lambda_i} \Ra \Vec{\text{vp}} \Ra X_H = \SN c_i V_i e^{\lambda_i}t \quad V_i$ $\Vec{\text{vp}}$, puis repasser dans $\R$ si besoin, + $X_p$.\\
+\underline{Méthode :} On résoud $Y' = DY$ avec $D=P^{-1}AP$ et $Y=P^{-1}X$ puis on repasse à $X$ et $A$ + base de $\Vec{\text{vp}}$\\
+\text{}\\
+\text{}\\
+signe solution dépend du côté de $a(x)$ ! \ pas oublier $2^\text{nd}$ membre + ds la normalisation !!\ \ recollement et superposition ! \qquad ($i\omega$ solution, pas $\omega$)\\
+
+\section*{Calcul différentiel}
+Passage polaire !\\
+$f : U\to \R \; \sC^1$ si $f$ admet toute ses $\partial_i$ sont $\sC^0$.\\
+\underline{différentielle :} $\text{d}f(a) : h\mapsto \partial_1f(a) h_1 +\dots + \partial_p f(a) h_p \ \ra$ si $f \; \sC^1, \; f(a+h) \underset{\|h\|\to0}{=} f(a)+\text{d}f(a) h +o(\|h\|)$\\
+$\nabla f(a) = (\partial_1 f(a),\dots, \partial_p f(a)) \quad \text{d}f(a).h = <\partial f(a),h>$\\
+\underline{Règle de la chaîne :} $f \; \sC^1$, les $t\mapsto x_i(t)\ \sC^1, \; \gamma(t) = (x_1(t),\dots,x_p(t))\in U$.\\
+Alors $g=f\circ \gamma$ existe et $\sC^1$ et $g'(t) = \sum_{i=1}^p x_i(t) \partial_if\circ \gamma(t)$.\\
+$\ra \text{ex : }\frac{\partial g}{\partial u} = \frac{\partial f}{\partial x}\times \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y}\times \frac{\partial y}{\partial u}$\\
+\text{}\\
+• $f : U\to \R \ \sC^1, \; U$ convexe de $\R^d$, si $\partial_i=0$ alors $f$ indé de sa $i$-ème variable.\\
+• $a$ point critique ssi $\nabla f(a) =(0,\dots,0)$ \ ; si $U$ convexe, \{extremums\}$\subset$\{points critiques\}\\
+\underline{Théorème de Schwarz :} $f \ \sC^2, \, \frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j\partial x_i} \ \Ra$ contraposée pour montrer pas $\sC^2$.\\
+
+
+\chapter*{1A}
+
+\section*{Équations différentielles ordinaires}
+\underline{simplement connexe :} $\forall (x,y)\in\Omega^2$, il existe un chemin entre $x$ et $y$.\\
+\underline{Théorème de Cauchy-Lipschitz :} Soit $f\in\sC^1(]t_1,t_2[,\Omega)$, $\Omega$ ouvert connexe de $\R^d$, alors il existent une unique solution maximale à un système de Cauchy.\\
+\underline{Version globale :} Si $f:]t_1,t_2[\times \Omega \to \R^d$ est globalement lipschitzienne en la deuxième variable et $\sC^0$ des deux, alors il existe une unique solution globale. \qquad (globale $\Ra$ maximale)\\
+\underline{Egalité de Duhamel :} $\varphi_{t_0,y_0}$ vérifie $\varphi(t) = y_0 +\int_{t_0}^t f(u,\varphi(u)) \; \text{d}u$.\\
+\underline{Théorème des bouts :} Soit $f:]a,b[\times \R^d \to \R^d \ \sC^1$, alors soit $]t1,t_2[ = \sD_\varphi, \; \varphi$ solution maximale alors $\varphi$ "explose" en ses bords.\\
+$\Ra$ Pour $\Omega=\R^d$, toute solution bornée est globale (corrolaire).\\
+\text{}\\
+sous-solution : $u$ sous-solution si $u'\leqslant f(t,u)$ et $u(0)=y_0$.\\
+équilibre : soluution stationnaire.\\
+\underline{stable :} $\forall \varepsilon>0, \; \exists \eta >0, \; \|y-y_0\|<\eta$ et $\forall t \; \|y(t) - y_0\|<\varepsilon$.\\
+\underline{asymptotiquement stable :} $\exists \eta >0 \; \forall y_0\in B(y_e,\eta), \; \sD_y \supset [t_0,+\infty[$ et $y(t)\LI y_e$.\\
+\text{}\\
+\underline{linéaire autonome :} $\begin{cases} Y'=AY+B \\ Y(0) = Y_0 \end{cases}$ \qquad \qquad $S = \text{Vect}(t\mapsto e^{At}) +y_p$.\\
+$y_e$ équilibre si solution de $Ay_e =b, \; y_e=A^{-1}b$ si $A\in\sG\sL_n(\K) \quad \Ra y:t\mapsto e^{At}(y_0-y_e) + y_e$\\
+$y_e$ stable ssi $\exists M, \; \|e^{At}\| \leqslant M \, \forall t\geqslant 0$ ou ssi $Sp(A)\subset \R^+$ si $A$ diago (si $\R_+^*$, asymptotiquement stable)\\
+$y_e$ aysmptotiquement stable si Re$(\lambda_i)<0$ ou $Sp\big(Jac(f(y_{eq}))\big) \subset \R_-^* + i\R$.\\
+\text{}\\
+\text{}\\
+\underline{Méthode :} on applique Cauchy-Lipschitz, on trouve les solu stationaire $t\mapsto c$, $c$ tq $f(t,c) = 0 \ \forall t$, on applique le corrolaire des bouts avec les sur/sous solutions.\\
+
+\section*{Schémas numériques}
+erreur globale : $e_i = y(t_i) -u_i \; \Ra$ schéma convergent ssi sup $|e_i| \underset{\Delta x\to +\infty}{\longrightarrow}0$.\\
+$e_i = \varepsilon_i + E_i$, $\varepsilon_i =y(t_{i+1}) - u_i$ et $E_i$ amplification de $e_{i+1}$ par le schéma $\Ra$ CVG ssi $\sum |\varepsilon_i| \underset{\Delta x\to 0}{\longrightarrow}0$ et $ E_i$ indépendant de $\Delta x$.\\
+\underline{consistance :} $\sum |\varepsilon_i| \underset{\Delta x\to 0}{\longrightarrow} 0$.\\
+\underline{ordre $k$ (min) :} $\exists C, \; \forall i \; |\varepsilon_i| \leqslant C h_{i-1}^{k+1} \ \Ra$ consistant et $\exists C, \, \sum |C_i| \leqslant C \Delta x^k$.\\
+Tout schéma stable et constant est convergent. Si il est d'ordre au moins $l\geqslant 1$ et stable, il est convergent et $\exists C>0,  \forall i \; |e_i|\leqslant C \Delta x^l$\\
+\underline{stabilité :} $F: (t,x,h) \mapsto F(t,x,h)$ est lipschitzienne en $x$.\\
+\underline{critère d'ordre :} $f \ \sC^p$ en $t$ et $x$ et $F \ \sC^p$ en h $\Ra$ schéma d'ordre $\geqslant p$ ssi\\ $\forall k\in \llbracket0,p-1\rrbracket, \; \frac{\partial^k F}{\partial h^k}(t,x,0) = \frac{f^{[k]}(t,x)}{k+1}$. \qquad \quad ($f^{[k+1]} = \partial_t f^{[k]} + f\partial_x f^{[k]}$ et $f^{[0]}=f$)\\
+\text{}\\
+\text{}\\
+\underline{Euler explicite :} $F(t,x,h) =f(t,x) \qquad \quad u_{n+1} = u_n + \Delta t f(t,u_n)$\qquad  ordre 1 si $f\; \sC^1$\\
+\underline{point milieu :} $F(t,x,h) = f(t+\frac{h}{2}, x+\frac{h}{2}f(t,x))$\qquad  ordre 2 si $f \; \sC^2$\\
+\underline{Hun :} $F(t,x,h) = \frac{1}{2} (f(t,x) + f(t+h,x+hf(t,x))$\qquad  //\\
+\text{}\\
+\text{}\\
+\underline{Euler implicite :} $u_{n+1} = u_n + \Delta tf(t_{n+1},u_{n+1})$\qquad  // si eq bien résolue\\
+\underline{Crank-Nicholson :} $u_{n+1} = u_n + \frac{\Delta t}{2}(f(t_n,u_n) + f(t_{n+1},u_{n+1}))$\qquad  //\\
+
+
+\section*{Transformé de Fourier}
+$\hat{f}=\sF(f)(\xi) = \int_\R f(x) e^{-2i\pi \xi x} \dx$ \ $\check{f}=\sF^{-1}(f) = \hat{f}(-x)$ et $\sF$ \quad $\sD^\alpha \overset{\sF}{\Da} (2i\pi\xi)^\alpha$\\
+\underline{Théorème de Riemann-Lebesgue :} $\sF(L^1) \subset L^\infty \cap \sC_{\to 0}$\\
+\underline{Théorème :} $f$ $L^1$ tq $\hat{f}$ $L^1$ alors $\sF^{-1}(f)$ existe, est continue et $\| f - \sF^{-1}(f)\|_1 = 0$.\\ Et si $f$ $\sC^0$, $\sF$ isomorphisme.\\
+$f \, L^1 \Ra \hat{f} \, \sC_{\ra 0}$ ainsi $\sF$ injective.\\
+\\
+$\mS$, \underline{espace de Schwart :} ensemble des fcts infiniment dérivables tel que $\forall k\,\forall l,\, x^l f^{(k}(x) \underset{\pm\infty}{\longrightarrow} 0$.\\
+$\sF(\mS)=\mS$ ($\Ra \mF$ isomorphisme) ; $(\mS, +, \dot)$ EV et $(\mS,+,\times)$ anneau.\\
+\underline{Plancheret-Parseval :} $f\in L^1\cap L^2$ (ou $\mS$) alors $\hat{f}\, L^2$ et $\|f\|_2 = \|\hat{f}\|_2$.\\
+
+\section*{EDP}
+
+
+
+
+\end{document}
