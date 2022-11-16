@@ -10,6 +10,10 @@
 \usepackage{fourier-orns}
 \usepackage{centernot}
 \usepackage{multirow}
+\usepackage{tikz}
+\usepackage{enumitem}
+
+\usepackage{dsfont}
 
 \everymath{\displaystyle}
 
@@ -88,6 +92,7 @@
 \newcommand{\sZ}{\mathscr{Z}}
 
 \newcommand{\Mat}{\text{Mat}}
+\newcommand{\1}{\mathds{1}}
 
 \newcommand{\Ra}{\Rightarrow}
 \newcommand{\ra}{\rightarrow}
@@ -97,6 +102,10 @@
 \newcommand{\da}{\leftrightarrow}
 
 \newcommand{\0}{\emptyset}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+    
 \newcommand{\bigzero}{\mbox{\normalfont\Large\bfseries 0}}
 \newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
 \newcommand\restr[2]{{% we make the whole thing an ordinary symbol
@@ -1395,7 +1404,47 @@ $\sF(\mS)=\mS$ ($\Ra \mF$ isomorphisme) ; $(\mS, +, \dot)$ EV et $(\mS,+,\times)
 
 \section*{EDP}
 
+\underline{Définition :} équation sur $D_\alpha^\beta\;f$ ($\alpha$, $\beta$ multi-indices) avec des conditions aux bords de $D_{f_\alpha}$ si borné.\\
+\text{ }\\
+\underline{Equation de la chaleur}\\
+$
+\begin{cases}
+\partial_t u - \mK \Delta u = f \quad t\geq 0\\
+u(t=0, .) = u_0
+\end{cases}
+$
 
-
+\section*{Variables aléatoires et Statistique}
+• \underline{discrète :} $X \sim \U(S),\, P(X=x) = \frac{\mathds{1}_S}{Card(S)}$\qquad $X\sim \mB(p), \,P(X=1)=p$ et $P(X=0)=1-p$\qquad $X\sim Bin(n,p),\,P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}$ \quad ($n$ $\mB$ indé $E=p$, $\V=np$)\qquad $X\sim \mP(\lambda),\,P(X=k)=\frac{\lambda^k}{k!}e^{-\lambda}$ \big(linéaire ; $E,\V = \lambda$ obtenu par $E(X(X-1))=\lambda^2$ et lin $E(X^2)=\lambda^2+\lambda$\big)\qquad $X\sim\mG(p),\,P(X=k)=p(1-p)^{k-1}$\\
+\text{ }\\
+• \underline{densité :} Si $\sC^0$ alors $P(X\in A) = \int_A f$\qquad $X\sim\mN(m,\sigma^2)$, linéaire $f(x)=\frac{1}{\sqrt{2\pi \sigma^2}}e^{-\frac{(x-m)^2}{2\sigma^2}}$\quad $m=0$, centrée et si $\sigma^2=1$, réduite ; $\frac{\mN(m,\sigma^2)-m}{\sigma}\sim\mN(0,1)$ $E=m$, $\V=\sigma^2$\\
+$X\sim$Exp$(\lambda),\,f(x)=\lambda e^{-\lambda x}\,\mathds{1}_{\R^+}(x)$\qquad $X\sim\Gamma(\alpha,\beta),\, f(x)=\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}\,\mathds{1}_{\R^+}(x)$\\
+\text{ }\\
+\underline{fonction de répartition :} $F_X$ croissante, $\sC^0$ à droite, $\lim_{-\infty} F_X =0,\,\lim_{+\infty} F_X =1 \Da$ $F_X$ fct de répartition.\qquad $X\sim\mB(p),\, F_X = \begin{cases} 0\text{ si }x<0\\ 1-p\text{ si }x\in]0;1[\\ p\text{ sinon}\\\end{cases}$\qquad $X\sim \mN(0,1),\,\Phi(x)=\int_\R \frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}\, dy$ $\Phi$ symétrique et $\Phi(-t)=1-\Phi(t)$\qquad $X\sim$Exp$(\lambda),\, F_X(x)=(1-e^{-\lambda x})\, \mathds{1}_{\R^+}(x)$\\
+$P(X=x)=F_X(x) - F_X(x^-)$\qquad $F_X(x)=\int_{-\infty}^x f_X$ ou $P(X\leq x)$\qquad \underline{médiane :} résoudre $F_X(m)=\frac{1}{2}$ dans la bonne zone.\\
+\text{ }\\
+\underline{espérance et variance :} $E(\varphi(x)) = \int_\R \varphi(x)f_X(x)\, dx$ linéairé et croissante\qquad $\V(X)=E((X-E(X))^2)=E(X^2)-E(X)^2$\quad $\V(aX+b)=a^2\V(X)$  $\sigma=\sqrt{\V(X)}$\newline
+\underline{Markov :} $X\geq 0$, $a>0$ $P(X\geq a)\leq \frac{E(X)}{a}$\qquad \underline{Bienaymé-Tchebytchev :} $X$ d'espérance finie, $a>0\; P(|X-E(X)|\geq a)\leq\frac{\V(X)}{a^2}$\qquad \underline{espérance totale :} $A,B$ s.c.e $E(X)=E(X\1_A)+E(X\1_B)$ puis indé de $\1_A$ et $X$\quad \warning$\, E(\1_B)\neq 0$ généralement\\
+\text{ }\\
+\underline{convergence en loi :} $X_n$ cvg vers $Y$ ssi $\forall t\, F_Y$ continue en $t$, $\LI F_{X_n}(t_n)=F_Y(t)$\newline \underline{convergence en probabilité :} $Z_1,\dots$ cvg en proba vers $x$, noté $Z_n \overset{P}{\ra} x$ si $\forall\varepsilon>0$, $P(|Z_n - x|>\varepsilon)\TI 0$.\\
+$X,\; Y$ indé alors $E(XY)=E(X)E(Y)$\qquad indé $\Ra \V\Big(\sum\Big) = \sum \V$\newline \underline{$n$-échantillon :} $X_1,\dots,X_n$ indé de même loi (iid).\newline
+\underline{Théorème (loi faible des grands nombres) :} $X_1,\dots,X_n$ iid avec $m=E(X_1)$ et $\sigma^2=\V(X_1)$ alors, $\forall a>0\; P\Big(\Big| \frac{1}{n} \SN X_i -m\Big|>a\Big)\leq \frac{\sigma^2}{na^2}$ (on a aussi $E(\frac{1}{n}\sum X_i) =m$, moyenne empirique).\\
+\underline{Théorème (loi forte des grands nombres) :}$X_1,\dots,X_n$ iid, $E$ et $\V$ alors $\frac{1}{n}(\SN X_i)\overset{P}{\ra} E(X_1)$.\\
+\underline{Théorème central limite :}$X_1,\dots,X_n$ iid espérance $m$ et variance $\sigma^2<\infty$, alors $\forall a\in \R$ $P\Big(\frac{X_1 + \dots + X_n - nm}{\sigma\sqrt{n}}\leq a\Big) \TI \Phi(a)$.\\
+\text{ }\\
+\underline{Approximation d'une binomiale :}
+• $n$ grand ($>30$) et $np$ petit ($<5$) : loi de Poisson, $\lambda=np$. (Stein)\\
+• $n$ grand ($>10$) et $np$, $n(1-p)$ assez grand ($>10$) : $\frac{S_n-np}{\sqrt{np(1-p)}}\sim \mN(0,1)$. (Moivre-Laplace)\\
+\text{ }\\
+\text{ }\\
+\underline{Test :} on choisit $\begin{cases}H_0\text{ si }X>s\\ H_1\text{ sinon}\\\end{cases}$ avec $s$ seuil à déterminer. $H_0$ est l'hypothèse nulle et $H_1$ l'alternative.\\
+\begin{enumerate}[label=\protect\circled{\arabic*}]
+\item On choisit un modèle.
+\item Formuler $H_0$ et $H_1$.
+\item Déterminer une statistique de test (ex : moyenne empirique de mesures indé).
+\item Trouver une règle de rejet de $H_0$ i.e. on prend $H_0$ si $X<s$ par ex, région de rejet.
+\item Calcul du seuil $s$ (ex: test de niveau $\alpha=5\%\Ra\forall m\leqslant 80 P(\hat{X}>s)\leqslant\alpha$, erreur de type $1$).
+\item Règle de décision, A.N. + décision (ex : $\1_{\hat{X}>80,025}$ test de niveau $5\%$ de $H_0$ et $H_1$ puis $\hat{X}_{\text{obs}}=80,1>s\Ra$ décision)
+\end{enumerate}
 
 \end{document}
