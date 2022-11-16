@@ -15,7 +15,7 @@ Always put Mmbase.sty in the root folder of .tex files (it's a package that I'll
 
 # Future Developments
 
-• Have [custom beamer template](https://github.com/Wubpooz/LateX/tree/main/Examples/Beamer%20theme%20creation) $\textcolor{blue}{\textbf{[In Progress]}}$
+• Have [custom beamer template](https://github.com/Wubpooz/LateX/tree/main/Examples/Beamer%20theme%20creation). $\textcolor{blue}{\textbf{[In Progress]}}$
 
 • Create a practical-style class.
 
