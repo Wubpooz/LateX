@@ -16,7 +16,7 @@ Always put Mmbase.sty in the root folder of .tex files (it's a package that I'll
 # Future Developments
 
 
-• Have custom beamer template **[ 🚧 <span style="color:blue;">In Progress</span>]**
+• Have custom beamer template **[<span style="color:blue;">In Progress</span>]** <span style="color:blue">some *blue* text</span>.
 
 • Create a practical-style class.
 
