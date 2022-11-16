@@ -6,20 +6,7 @@
 
 %%------------------ Extensions --------------------
 
-\RequirePackage[utf8]{inputenc}
-\RequirePackage{fancyhdr}
-\RequirePackage{graphicx}
-\RequirePackage{titlesec}
-\RequirePackage{geometry}
-\RequirePackage{hyperref}
-\RequirePackage{subcaption}
-\RequirePackage{wrapfig}
-\RequirePackage{float}
-\RequirePackage{caption}
-\RequirePackage{xcolor}
-\RequirePackage{afterpage}
-
-\RequirePackage{amsmath}
+\RequirePackage[fleqn]{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{setspace}
 \RequirePackage{eucal}
@@ -29,8 +16,24 @@
 \RequirePackage{fourier-orns}
 \RequirePackage{centernot}
 \RequirePackage{multirow}
-\RequirePackage{bbm}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{fancyhdr}
+\RequirePackage{graphicx}
+\RequirePackage{titlesec}
+\RequirePackage[margin=1in,headheight=13.6pt,lmargin=0.7in, rmargin=0.7in]{geometry}
+\RequirePackage{enumitem}
+\RequirePackage{hyperref}
+\RequirePackage{subcaption}
+\RequirePackage{wrapfig}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{xcolor}
+\RequirePackage{afterpage}
 \RequirePackage{tikz}
+\RequirePackage{dsfont}
+\RequirePackage{enumitem}
+
 
 
 %%------------------ Options -----------------------
@@ -105,16 +108,6 @@
 \newcommand{\sY}{\mathscr{Y}}
 \newcommand{\sZ}{\mathscr{Z}}
 
-\newcommand{\fF}{\CMcal{F}} %Fourier transform
-
-\newcommand{\SN}{\sum_{i=1}^n}
-\newcommand{\SI}{\sum_{n=0}^{+\infty}}
-\newcommand{\PN}{\prod_{i=1}^n}
-\newcommand{\TI}{\xrightarrow[+\infty]{}}
-\newcommand{\LI}{\lim_{n\to +\infty}}
-\newcommand{\dt}{\; \text{d}t}
-\newcommand{\dx}{\; \text{d}x}
-
 \newcommand{\Mat}{\text{Mat}}
 
 \newcommand{\Ra}{\Rightarrow}
@@ -123,7 +116,6 @@
 \newcommand{\la}{\leftarrow}
 \newcommand{\Da}{\Leftrightarrow}
 \newcommand{\da}{\leftrightarrow}
-
 
 \newcommand{\0}{\emptyset}
 \newcommand{\bigzero}{\mbox{\normalfont\Large\bfseries 0}}
@@ -135,9 +127,13 @@
   \right|_{#2} % this is the delimiter
   }}
 
-
-\theoremstyle{example} %changes name of example environnement by creating a new one
-\newtheorem{exemple}{Exemple}
+\newcommand{\SN}{\sum_{i=1}^n}
+\newcommand{\SI}{\sum_{n=0}^{+\infty}}
+\newcommand{\PN}{\prod_{i=1}^n}
+\newcommand{\TI}{\xrightarrow[+\infty]{}}
+\newcommand{\LI}{\lim_{n\to +\infty}}
+\newcommand{\dt}{\; \text{d}t}
+\newcommand{\dx}{\; \text{d}x}
 
 
 \newcommand\blankpage{%
@@ -147,9 +143,15 @@
     \newpage
 }
 
-\newcommand{\cul}[2][black]{\textcolor{#1}{\underline{\textcolor{black}{#2}}}} %colored underlined. args = [color]{text}
+\newcommand{\1}{\mathds{1}}
 
-\everymath{\displaystyle}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}} %for circled numbers
+    
+% \begin{enumerate}[label=\protect\circled{\arabic*}]
+% \item 
+% \end{enumerate} 
+%For a list with circled numbers
 
 %%------------------ Fin ---------------------------
 
