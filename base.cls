@@ -48,6 +48,12 @@
 %\definecolor{slcolor}{HTML}{882B21}
 \everymath{\displaystyle}
 
+\hypersetup{
+    pdftitle = TP5 ADO,
+    pdfauthor = Mathieu WAHARTE,
+    colorlinks = true,
+    linkcolor = blue
+}
 
 \pagestyle{fancy}
 \fancyhf{}
