@@ -28,11 +28,12 @@
 \RequirePackage{wrapfig}
 \RequirePackage{float}
 \RequirePackage{caption}
-\RequirePackage{xcolor}
+\RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{afterpage}
 \RequirePackage{tikz}
 \RequirePackage{dsfont}
-\RequirePackage{enumitem}
+\RequirePackage[justification=centering]{caption}
+\RequirePackage{color, colortbl}
 
 
 
@@ -109,6 +110,7 @@
 \newcommand{\sZ}{\mathscr{Z}}
 
 \newcommand{\Mat}{\text{Mat}}
+\newcommand{\1}{\mathds{1}}
 
 \newcommand{\Ra}{\Rightarrow}
 \newcommand{\ra}{\rightarrow}
@@ -143,15 +145,26 @@
     \newpage
 }
 
-\newcommand{\1}{\mathds{1}}
+%\theoremstyle{example} %changes name of example environnement by creating a new one
+%\newtheorem{exemple}{Exemple}
+
+
+% \newcommand\blankpage{%
+%     \null
+%     \thispagestyle{empty}%
+%     \addtocounter{page}{-1}%
+%     \newpage
+% }
+
+\newcommand{\cul}[2][black]{\textcolor{#1}{\underline{\textcolor{black}{#2}}}} %colored underlined. args = [color]{text}
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}} %for circled numbers
-    
-% \begin{enumerate}[label=\protect\circled{\arabic*}]
-% \item 
-% \end{enumerate} 
-%For a list with circled numbers
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\renewcommand{\sectionmark}[1]{%
+  \markright{\textbf{\MakeUppercase{\thesection.\ #1}}}}%
+  
+\everymath{\displaystyle}
 
 %%------------------ Fin ---------------------------
 
