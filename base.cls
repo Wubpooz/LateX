@@ -8,7 +8,7 @@
 
 
 \DeclareOption{10pt}{
-  \PassOptionsToClass{\CurrentOption}{book}
+  \PassOptionsToClass{\CurrentOption}{article}
 }
 
 \DeclareOption*{\ClassWarning{base}{Unknown option '\CurrentOption'}}
@@ -21,7 +21,7 @@
 %------------------ Classe de base -----------------
 
 
-\LoadClass{book}
+\LoadClass{article}
 
 
 %%------------------ Extensions --------------------
