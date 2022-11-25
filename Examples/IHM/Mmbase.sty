@@ -1,0 +1,158 @@
+%%------------------ Infos générales ---------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Mmbase}[03/10/2022]
+
+
+%%------------------ Extensions --------------------
+
+\RequirePackage[fleqn]{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{setspace}
+\RequirePackage{eucal}
+\RequirePackage{stmaryrd}
+\RequirePackage{mathrsfs}
+\RequirePackage{mathtools}
+\RequirePackage{fourier-orns}
+\RequirePackage{centernot}
+\RequirePackage{multirow}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{fancyhdr}
+\RequirePackage{graphicx}
+\RequirePackage{titlesec}
+\RequirePackage[margin=1in,headheight=13.6pt,lmargin=0.7in, rmargin=0.7in]{geometry}
+\RequirePackage{enumitem}
+\RequirePackage{hyperref}
+\RequirePackage{subcaption}
+\RequirePackage{wrapfig}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{xcolor}
+\RequirePackage{afterpage}
+\RequirePackage{tikz}
+\RequirePackage{dsfont}
+\RequirePackage{enumitem}
+
+
+
+%%------------------ Options -----------------------
+
+
+
+%%------------------ Commandes ---------------------
+
+%Maths
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mB}{\mathcal{B}}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\mD}{\mathcal{D}}
+\newcommand{\mE}{\mathcal{E}}
+\newcommand{\mF}{\mathcal{F}}
+\newcommand{\mG}{\mathcal{G}}
+\newcommand{\mH}{\mathcal{H}}
+\newcommand{\mI}{\mathcal{I}}
+\newcommand{\mJ}{\mathcal{J}}
+\newcommand{\mK}{\mathcal{K}}
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mM}{\mathcal{M}}
+\newcommand{\mN}{\mathcal{N}}
+\newcommand{\mO}{\mathcal{O}}
+\newcommand{\mP}{\mathcal{P}}
+\newcommand{\mQ}{\mathcal{Q}}
+\newcommand{\mR}{\mathcal{R}}
+\newcommand{\mS}{\mathcal{S}}
+\newcommand{\mT}{\mathcal{T}}
+\newcommand{\mU}{\mathcal{U}}
+\newcommand{\mV}{\mathcal{V}}
+\newcommand{\mW}{\mathcal{W}}
+\newcommand{\mX}{\mathcal{X}}
+\newcommand{\mY}{\mathcal{Y}}
+\newcommand{\mZ}{\mathcal{Z}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+\newcommand{\Mat}{\text{Mat}}
+
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\La}{\Leftarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\Da}{\Leftrightarrow}
+\newcommand{\da}{\leftrightarrow}
+
+\newcommand{\0}{\emptyset}
+\newcommand{\bigzero}{\mbox{\normalfont\Large\bfseries 0}}
+\newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\newcommand{\SN}{\sum_{i=1}^n}
+\newcommand{\SI}{\sum_{n=0}^{+\infty}}
+\newcommand{\PN}{\prod_{i=1}^n}
+\newcommand{\TI}{\xrightarrow[+\infty]{}}
+\newcommand{\LI}{\lim_{n\to +\infty}}
+\newcommand{\dt}{\; \text{d}t}
+\newcommand{\dx}{\; \text{d}x}
+
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage
+}
+
+\newcommand{\1}{\mathds{1}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}} %for circled numbers
+    
+% \begin{enumerate}[label=\protect\circled{\arabic*}]
+% \item 
+% \end{enumerate} 
+%For a list with circled numbers
+
+%%------------------ Fin ---------------------------
+
+\endinput
