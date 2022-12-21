@@ -39,6 +39,7 @@
 \RequirePackage{float}
 \RequirePackage{caption}
 \RequirePackage[bottom]{footmisc}
+\RequirePackage{pdflscape}
 \RequirePackage{Mmbase}
 
 
@@ -72,6 +73,22 @@
 \setlength{\headheight}{15.6pt}
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{1pt}
+
+
+\DeclareCaptionLabelSeparator{colon}{ : }
+
+\fancypagestyle{mylandscape}{
+\fancyhf{} %Clears the header/footer
+
+\fancyfoot{% Footer
+    \makebox[\textwidth][r]{% Right
+    \rlap{\hspace{.75cm}% Push out of margin by \footskip
+    \smash{% Remove vertical height
+    \raisebox{4.87in}{% Raise vertically
+    \rotatebox{90}{\thepage}}}}}}% Rotate counter-clockwise
+    \renewcommand{\footrulewidth}{0pt}
+    \renewcommand{\headrulewidth}{0pt}
+}
 
 
 %%------------------ Fin ---------------------------
