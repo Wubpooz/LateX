@@ -1,0 +1,195 @@
+\documentclass[usenames,dvipsnames,aspectratio=169]{beamer} %for \cul xcolor tags to work with tikz, passes args to xcolor directly => DO NOT CALL the package with them later else causes error
+
+\usepackage{Mmbase}
+
+\usetheme{psaclay}
+
+\makeatletter
+\newcommand{\Pause}[1][]{\unless\ifmeasuring@\relax
+\pause[#1]%
+\fi}
+\makeatother %for correct \pause in math mode in enumerate
+
+
+%------------------------------ Title page ------------------------------
+
+\title[Intro Fourier]{Introduction à la théorie de Fourier}
+
+\subtitle{Généralités}
+
+\author{M. Waharte}
+
+\institute[PPS]{Polytech Paris-Saclay}
+
+\date[MAT342]{MAT 342 : Théorie de Fourier - 2022}
+
+
+%------------------------------------------------------------
+%beginning of each section and highlights the current section
+
+\AtBeginSection[]{
+  \begin{frame}
+    \frametitle{Sommaire}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
+
+
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+% 1.----------------------------- ToC ----------------------------
+
+\begin{frame}
+\frametitle{Sommaire}
+\tableofcontents
+\end{frame}
+
+
+% 2.---------------------------------------------------------
+
+\section{Définition}
+
+
+%3. ---------------------------------------------------------
+
+\begin{frame}
+\frametitle{Définition}
+
+\begin{block}{Définition}
+Soit $f : \R^n \ra \C$ intégrable, on note sa transformée de Fourier $\hat{f}$ ( ou $\fF(f)$) :  $$\hat{f} : \xi\in\R^n \mapsto \int_\R f(x) e^{-2i\pi x\xi} \dx$$
+\end{block}
+\pause
+
+\begin{itemize} %<1-> means 1st slide and after and <2> only 2nd slide
+    \item<1-> On peut aussi le définir :\\ • $\hat{f}(\xi)\mapsto \int_\R f(x) e^{-x\xi}\dx$\\\pause
+    \uncover<2->{ • $\hat{f}(\xi)\mapsto \frac{1}{(\sqrt{2\pi})^n}\int_\R f(x) e^{-x\xi}\dx$}
+\end{itemize}
+\uncover<2->{(La seule différence sera les coefficient des formules)}
+
+\end{frame}
+
+
+%4. ---------------------------------------------------------
+
+
+\begin{frame}
+\frametitle{Exemple}
+\begin{block}{Exemple}
+Calculez la transformée de Fourier de $\mathbbm{1}_{[a,b]}$ et de $x\mapsto e^{-|x|}$.\\
+\end{block} \pause
+
+\begin{equation*}
+   \begin{split} 
+        \hat{f}(\xi) &= \int_\R e^{-|x|} e^{-2i\pi x\xi}\,dx = \Pause \int_{\R^-} e^{x(1-2i\pi\xi)}dx\; + \; \int_{\R^+} e^{x(-1-2i\pi\xi)}dx \\
+        &\cul[OliveGreen]{ = \frac{2}{1+4\pi\xi^2} }\,.
+    \end{split}  
+\end{equation*}
+
+\end{frame}
+
+
+%5. ---------------------------------------------------------
+
+\section{Propriétés}
+
+
+%6. ---------------------------------------------------------
+
+\begin{frame}
+\frametitle{Propriétés}
+
+Soient la translation $\tau_y(f) : x\in\R^n \mapsto f(x-y)$ et $\sC_{\ra0}$ l'ensemble des fonctions continues convergeant vers $0$ en $\pm\,\infty$.
+
+\begin{block}{Propriétés}
+Soient $f,g\in L^1(\R^n)$, $\lambda\in\R$ et $k\in\N$.
+
+\begin{enumerate}
+    \item Si $h : x\mapsto e^{2\pi i \lambda x}f(x)$, alors $h$ intégrable et $\hat{h}=\tau_\lambda f$.\pause
+    \item $\fF(\tau_\lambda f)(\xi) = e^{-2i\pi x\xi} \hat{f}(\xi)$.\pause
+    \item $\fF (f \ast g) = \hat{f}\hat{g}$.\pause
+    \item Si $\forall \alpha\in\N^n\; |\alpha|\leq k, (x\mapsto x^\alpha f(x))\in L^1(\R)$, alors $\hat{f}\in\sC^k$ et $\partial^\alpha f = \fF[(-2i\pi x)^\alpha f(x)]$.\pause
+    \item Si $f\in\sC^k$ et $\forall |\alpha|\leq k, \;\partial^\alpha f\in L^1$ et $\in \sC_{\ra 0}$ avec $k-1$, alors $\fF(\partial^\alpha f)(\xi) = (2i\pi\xi)^\alpha \hat{f}(\xi)$.
+\end{enumerate}
+
+\end{block}
+
+\end{frame}
+
+%7. ----------------------------------------------------
+
+\begin{frame}{Remarque}
+Une fonction est dite à décroisssance rapide si $\forall n, \; \lim_{x\ra\pm\infty} x^n f(x) = 0$ ; la transformée de Fourier d'une telle fonction sera $\sC^\infty$ et réciproquement.\\
+
+\pause
+\begin{block}{Théorème de Riemann-Lebesgue}
+$\fF(L^1)\subset L^\infty \cap \sC_{\ra 0}$.\\
+i.e. pour $f\in L^1$, $\hat{f}$ est continue, bornée et converge vers $0$ en $\pm\infty$ (la TF est régulière).
+
+\end{block}
+
+
+\end{frame}
+
+
+%8. ----------------------------------------------------
+
+\section{Transformée inverse}
+
+%9. ----------------------------------------------------
+
+
+\begin{frame}{Définition}
+   \begin{block}{Définition (Transformée inverse)}
+        Soit $g\in L^1$, $$ \fF^{-1}(g) = \check{g} : x\mapsto \int_\R g(\xi) e^{2i\pi x\xi}d\xi \ = \hat g(-x)\;.$$
+   \end{block}
+   \pause
+   \underline{Théorème d'inversion :} Soit $f\in L^1$ telle que $\hat{f}$ intégrable alors, $\hat{f}$ est continue et $|| f- \fF^{-1}(\hat{f})||_1 = 0$.\\ 
+   \pause
+   De plus, si $f$ continue, $f = \fF^{-1}(\hat{f})$.\\
+   $\implies$ $\fF$ est injective sur $L^1$.
+    
+\end{frame}
+
+
+%10. ----------------------------------------------------
+
+\begin{frame}{Espace de Schwarz}
+    \begin{block}{Définition (Espace de Schwarz)}
+        On note $\mS$, espace de Schwarz, l'ensemble des fonctions infiniment dérivables telles que $$\forall \alpha,\beta \in \N^n,\; \lim_{|x|\ra\infty} x^\alpha \partial^\beta =0\;.$$
+    \end{block}
+    \pause
+    On y retrouve notamment $x\mapsto e^{-|x|^2}$ et les fonctions $\sC^\infty$ à support compact.\\
+    \text{ }\\
+    \pause
+    $\fF : \mS\ra \mS$.
+\end{frame}
+
+%11. -------------------------------------------------------
+
+\begin{frame}{Plancheret-Parseval}
+    
+    \begin{block}{Théorème de Plancheret-Parseval (simplifié)}
+        Si $f\in L^1\cap L^2$, alors $\hat{f}\in L^2$ et $||f||_2 = ||\hat{f}||_2$.
+    \end{block}
+
+\end{frame}
+
+%12. ---------------------------------------------------------
+
+\begin{frame}[fragile]
+The following Python code adds two numbers and display the result using \verb|print()| function
+\begin{minted}{C}
+    #include <stdio.h>
+
+    int main(int argc, char* argv[]){
+        return 0;
+    }
+\end{minted}
+\end{frame}
+
+\end{document}

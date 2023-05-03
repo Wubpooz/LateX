@@ -1,0 +1,157 @@
+%%------------------ Infos générales ---------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Mmbase}[03/10/2022]
+
+
+%%------------------ Extensions --------------------
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{fancyhdr}
+\RequirePackage{graphicx}
+%\RequirePackage{titlesec}
+\RequirePackage{geometry}
+\RequirePackage{hyperref}
+\RequirePackage{subcaption}
+\RequirePackage{wrapfig}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{xcolor}
+\RequirePackage{afterpage}
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{setspace}
+\RequirePackage{eucal}
+\RequirePackage{stmaryrd}
+\RequirePackage{mathrsfs}
+\RequirePackage{mathtools}
+\RequirePackage{fourier-orns}
+\RequirePackage{centernot}
+\RequirePackage{multirow}
+\RequirePackage{bbm}
+\RequirePackage{tikz}
+\RequirePackage{minted}
+
+
+%%------------------ Options -----------------------
+
+
+
+%%------------------ Commandes ---------------------
+
+%Maths
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mB}{\mathcal{B}}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\mD}{\mathcal{D}}
+\newcommand{\mE}{\mathcal{E}}
+\newcommand{\mF}{\mathcal{F}}
+\newcommand{\mG}{\mathcal{G}}
+\newcommand{\mH}{\mathcal{H}}
+\newcommand{\mI}{\mathcal{I}}
+\newcommand{\mJ}{\mathcal{J}}
+\newcommand{\mK}{\mathcal{K}}
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mM}{\mathcal{M}}
+\newcommand{\mN}{\mathcal{N}}
+\newcommand{\mO}{\mathcal{O}}
+\newcommand{\mP}{\mathcal{P}}
+\newcommand{\mQ}{\mathcal{Q}}
+\newcommand{\mR}{\mathcal{R}}
+\newcommand{\mS}{\mathcal{S}}
+\newcommand{\mT}{\mathcal{T}}
+\newcommand{\mU}{\mathcal{U}}
+\newcommand{\mV}{\mathcal{V}}
+\newcommand{\mW}{\mathcal{W}}
+\newcommand{\mX}{\mathcal{X}}
+\newcommand{\mY}{\mathcal{Y}}
+\newcommand{\mZ}{\mathcal{Z}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\bP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+\newcommand{\fF}{\CMcal{F}} %Fourier transform
+
+\newcommand{\SN}{\sum_{i=1}^n}
+\newcommand{\SI}{\sum_{n=0}^{+\infty}}
+\newcommand{\PN}{\prod_{i=1}^n}
+\newcommand{\TI}{\xrightarrow[+\infty]{}}
+\newcommand{\LI}{\lim_{n\to +\infty}}
+\newcommand{\dt}{\; \text{d}t}
+\newcommand{\dx}{\; \text{d}x}
+
+\newcommand{\Mat}{\text{Mat}}
+
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\La}{\Leftarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\Da}{\Leftrightarrow}
+\newcommand{\da}{\leftrightarrow}
+
+
+\newcommand{\0}{\emptyset}
+\newcommand{\bigzero}{\mbox{\normalfont\Large\bfseries 0}}
+\newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+\theoremstyle{example} %changes name of example environnement by creating a new one
+\newtheorem{exemple}{Exemple}
+
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage
+}
+
+\newcommand{\cul}[2][black]{\textcolor{#1}{\underline{\textcolor{black}{#2}}}} %colored underlined. args = [color]{text}
+
+\everymath{\displaystyle}
+
+%%------------------ Fin ---------------------------
+
+\endinput

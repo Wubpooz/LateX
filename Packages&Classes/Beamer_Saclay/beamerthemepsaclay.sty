@@ -1,0 +1,133 @@
+%-------------------- Global --------------------------
+
+\mode<presentation>
+
+\RequirePackage{helvet}
+\RequirePackage{mathptmx}
+\renewcommand\familydefault{\sfdefault}
+
+
+%---------------------- Colours ------------------------------
+
+\definecolor{saclay}{RGB}{90,13,59}
+\definecolor{saclay-light}{HTML}{ceb7c5} %or decfd8
+\setbeamercolor{Title}{fg=white,bg=saclay}
+
+
+\setbeamercolor*{background canvas}{fg=black,bg=white}
+\setbeamercolor*{normal text}{fg=black}
+
+
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{title page}{fg=white}
+\setbeamerfont{title}{size=\Huge}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{section}{series=\bfseries}
+\setbeamercolor{structure}{fg=saclay}
+\setbeamerfont{structure}{series=\bfseries}
+
+\setbeamercolor{frametitle-left}{fg=saclay}
+\setbeamercolor{frametitle}{fg=saclay,bg=saclay-light}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\small}
+
+
+\definecolor{light-grey}{RGB}{240, 240, 240}
+\setbeamercolor*{itemize item}{fg=light-grey}
+\setbeamercolor*{itemize subitem}{fg=light-grey}
+
+
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamercolor{block title}{fg=white, bg=saclay}
+\setbeamercolor{block body}{bg=saclay-light}
+
+\setbeamerfont{block title example}{series=\bfseries}
+\setbeamercolor{block title example}{fg=white,bg=saclay}
+\setbeamercolor{block body example}{bg=saclay-light}
+
+\setbeamerfont{block title alerted}{series=\bfseries}
+\setbeamercolor{block title alerted}{fg=white,bg=saclay}
+\setbeamercolor{block body alerted}{fg=black,bg=saclay-light}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{enumerate item}{fg=black}
+
+
+%------------------- Inner Theme -----------------------------
+
+\setbeamertemplate{itemize items}[square]
+\setbeamertemplate{enumerate items}[default] %changes the dots of enumerate
+%\usenavigationsymbolstemplate{}
+\usefonttheme[onlymath]{serif} %for serif font in math mode
+\setbeamertemplate{itemize items}[circle]
+
+%-------------------- Outer Theme ----------------------------
+
+\setbeamertemplate{navigation symbols}{}
+
+\RequirePackage{tikz}
+
+\newlength{\marginedPaperWidth}{\paperwidth - 0.2cm}
+
+% Frame title
+\defbeamertemplate*{frametitle}{saclay}[1][]{
+  %\vskip0.5cm%
+  \vskip -0.1cm
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
+    \begin{tikzpicture}
+    \useasboundingbox(0,0) rectangle(\the\paperwidth,1.2);
+    {\usebeamercolor[fg]{frametitle-left}}
+    \fill[color=frametitle-left.fg] (0.2,0) rectangle(\the\marginedPaperWidth,1.2);
+    
+     \ifx\insertframesubtitle\@empty%
+        {\node[anchor=west] at (0.3,0.61){\usebeamerfont{frametitle}\insertframetitle};}
+        \else%
+        {\node[anchor= west] at (0.2,0.81){\usebeamerfont{frametitle}\insertframetitle};%
+         \node[anchor= west] at (0.4,0.25){\usebeamerfont{framesubtitle}-\insertframesubtitle};}%
+        \fi
+    \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+
+\setbeamertemplate{background} {
+	\ifnum\c@framenumber=1
+	
+    \hspace{\beamer@leftmargin}%
+	\begin{beamercolorbox}[ht=\paperheight,wd=\paperwidth, center]{Title}
+	\end{beamercolorbox}
+	
+	\else 
+	\hspace{\beamer@leftmargin}%
+	\begin{beamercolorbox}[ht=\paperheight,wd=\paperwidth, center]{white}
+	\end{beamercolorbox}
+	\fi
+}
+
+\setbeamertemplate{blocks}[rounded]
+
+
+\setbeamertemplate{footline}{
+    \ifnum\c@framenumber=1
+
+    \else
+    \begin{tikzpicture}[overlay]
+        \node[] at (.2\paperwidth,.03\paperheight) {\insertshortauthor};
+        \node[] at (.5\paperwidth,.03\paperheight) {\insertframenumber/\inserttotalframenumber};
+        \node[] at (.8\paperwidth,.03\paperheight) {\insertshortdate};
+    \end{tikzpicture}
+    
+    \fi
+}
+
+\renewenvironment<>{block}[1]{%
+ \begin{actionenv}#2%
+ \def\insertblocktitle{\leftskip=4pt\rightskip=6pt\vspace{3pt} #1\vspace{3pt}}%
+ %\par%
+ \usebeamertemplate{block begin}\leftskip=4pt\rightskip=10pt\vspace{1pt}}
+ {%\par
+ \vspace{2pt}\usebeamertemplate{block end}
+ \end{actionenv}\vskip-.1cm}
+
+
+
+\mode<all>
