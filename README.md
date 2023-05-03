@@ -10,7 +10,7 @@ Always put Mmbase.sty in the root folder of .tex files (it's a package that I'll
 
 • [`TD.cls`](https://github.com/Wubpooz/LateX/blob/main/Packages%26Classes/TDs.cls) : a class that normalize the style I want my tutorials (Travaux Dirigés in French) to look like.
 
-• [`Saclay Beamer Template`](https://github.com/Wubpooz/LateX/tree/main/Packages%26Classes/Beamer_Saclay).
+• [Saclay Beamer Template](https://github.com/Wubpooz/LateX/tree/main/Packages%26Classes/Beamer_Saclay).
 
 • [TD folder](https://github.com/Wubpooz/LateX/tree/main/TDs) : regroup tutorials examples I've created.
 
