@@ -1,3 +1,9 @@
+%-------------------------
+% class for written exercices
+% Author: Mathieu Waharte 
+% Based off of: https://github.com/Wubpooz/LateX
+% License: GPL-3.0
+%------------------------
 %%------------------ Infos générales ---------------
 
 \NeedsTeXFormat{LaTeX2e}
